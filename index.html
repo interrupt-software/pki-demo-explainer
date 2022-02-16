@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Template</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="fav-icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav-icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav-icon/favicon-16x16.png">
+    <link rel="manifest" href="fav-icon/site.webmanifest">
+    <link rel="mask-icon" href="fav-icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="fav-icon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="fav-icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/main.js"></script>
+
+    <style>
+        .box-wrapper {
+            border-radius: 5px 5px 0px 0px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 50%;
+
+            padding: 50px;
+        }
+
+        .box-wrapper h1 {
+            margin: 0;
+            font-size: 24px;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .box-wrapper ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .box-wrapper li {
+            border: solid var(--gray-4);
+            border-radius: 5px 5px 0px 0px;
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .box-wrapper li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            cursor: pointer;
+            border: solid var(--gray-4);
+            border-radius: 5px 5px 0px 0px;
+            text-transform: uppercase;
+            width: 300px;
+            /* height: 100%; */
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .box .tooltiptext {
+            color: var(--gray-3);
+            font-size: 18px;
+            visibility: hidden;
+            opacity: 0;
+            width: inherit;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            /* text-transform: none; */
+
+            position: relative;
+            z-index: 1;
+            top: 50px;
+
+            transition:
+                visibility 500ms linear 500ms ease-in,
+                opacity 500ms linear 500ms ease-in;
+        }
+
+        .box:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .explainer-wrapper {
+            width: 50%;
+            padding: 50px;
+        }
+
+        .explainer {
+            width: 400px;
+            display: none;
+            animation: fadeInUp 4s ease forwards;
+            animation-delay: calc(var(--splash-delay) * 200ms);
+        }
+
+        .explainer h1 p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .explainer h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .explainer p {
+            font-size: 18px;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30%);
+            }
+
+            30%,
+            50%,
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-wrapper">
+            <div class="main-content">
+
+                <div class="box-wrapper" data-clickable="true">
+                    <div class="box" data-active="false">
+                        <h1>Heading</h1>
+
+                        <ul>
+                            <li data-clickable="true">Item 1</li>
+                            <li data-clickable="true">Item 2</li>
+                            <li data-clickable="true">Item 2</li>
+                        </ul>
+
+                        <span class="tooltiptext" id="tooltiptext">Show legend</span>
+
+                    </div>
+                </div>
+
+
+                <div class="explainer-wrapper">
+
+                    <div class="explainer" style="--splash-delay: 1">
+                        <h1>Explainer Title 1</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident similique doloribus
+                            corrupti mollitia est placeat eveniet. Iure excepturi ut quod.</p>
+                    </div>
+
+                    <div class="explainer" style="--splash-delay: 3">
+                        <h1>Explainer Title 2</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident similique doloribus
+                            corrupti mollitia est placeat eveniet. Iure excepturi ut quod.</p>
+                    </div>
+
+                    <div class="explainer" style="--splash-delay: 6">
+                        <h1>Explainer Title 3</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident similique doloribus
+                            corrupti mollitia est placeat eveniet. Iure excepturi ut quod.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
