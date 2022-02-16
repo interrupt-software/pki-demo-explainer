@@ -1,4 +1,10 @@
 window.onload = function () {
+
+    var root_token;
+    fetch("/js/vault-unseal.json")
+        .then(response => response.json())
+        .then(json => root_token = json["root_token"]);
+
     const pretty_box = document.querySelector(".box");
 
     pretty_box.addEventListener('click', () => {
@@ -14,10 +20,12 @@ window.onload = function () {
             })
 
             pretty_box.setAttribute("data-active", true);
-            document.getElementById('tooltiptext').innerHTML = 'Go to page 1';
+            document.getElementById('tooltiptext').innerHTML = 'What is a root token?';
 
         } else if (box_is_active === "true") {
-            window.location.href = "index.html"
+            document.getElementById("tale-teller").innerHTML = `
+            <p>${root_token}</p>
+            `;
         }
 
     })
