@@ -69,7 +69,7 @@
 
         .box {
             cursor: pointer;
-            /* border: solid var(--gray-4); */
+            border: solid var(--gray-4);
             border-radius: 5px 5px 0px 0px;
             text-transform: uppercase;
             width: 300px;
@@ -110,6 +110,7 @@
 
         .explainer {
             width: 400px;
+            /* display: none; */
             opacity: 0;
             animation: fadeInUp 10s ease forwards;
             animation-delay: calc(var(--splash-delay) * 500ms);
@@ -127,6 +128,7 @@
 
         .explainer h1 {
             font-size: 24px;
+            text-transform: uppercase;
         }
 
         .explainer p {
@@ -156,7 +158,14 @@
 
                 <div class="box-wrapper" data-clickable="true">
                     <div class="box" data-active="false">
-                        <img src="./img/vault_logo.svg" alt="Vault">
+                        <h1>Vault</h1>
+
+                        <ul>
+                            <li data-clickable="true">Item 1</li>
+                            <li data-clickable="true">Item 2</li>
+                            <li data-clickable="true">Item 2</li>
+                        </ul>
+
                         <span class="tooltiptext" id="tooltiptext">What is Vault?</span>
 
                     </div>
@@ -168,17 +177,17 @@
                     <div class="tale-teller" id="tale-teller"></div>
 
                     <div class="explainer" style="--splash-delay: 1">
-                        <h1>HashiCorp Vault</h1>
-                        <p>Vault is an identity-based secrets and encryption management system.</p>
+                        <h1>What is it?</h1>
+                        <p>It is a secrets engine for generating and managing X.509 certificates.</p>
                     </div>
 
                     <div class="explainer" style="--splash-delay: 3">
-                        <p>A secret is anything that you want to tightly control access to, such as API encryption
-                            keys, passwords, or certificates.</p>
+                        <p>It is a complementary solution to your external PKI providers to support an automated and
+                            dynamic generation of your PKI certificates.</p>
                     </div>
 
                     <div class="explainer" style="--splash-delay: 6">
-                        <p>Secrets engines are components which store, generate, or encrypt data.</p>
+                        <p>It is an independent root PKI provider for private environments.</p>
                     </div>
 
                 </div>
