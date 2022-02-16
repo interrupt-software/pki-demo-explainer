@@ -55,8 +55,8 @@ a {
     border-style: solid;
     border-color: red;
 
-    width: 70vw;
-    height: 70vh;
+    min-width: clamp(830px, 70vw, 100%);
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
