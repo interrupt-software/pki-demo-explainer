@@ -18,3 +18,8 @@ test*
 # contain sensitive info.    #
 ##############################
 test_data
+
+# Although this is transient,#
+# it should not be here.     #
+##############################
+vault-unseal.json
