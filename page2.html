@@ -69,13 +69,16 @@
 
         .box {
             cursor: pointer;
-            border: solid var(--gray-4);
-            border-radius: 5px 5px 0px 0px;
+            /* border: solid var(--gray-4); */
             text-transform: uppercase;
-            width: 300px;
+            width: 400px;
             /* height: 100%; */
             padding: 5px;
             box-sizing: border-box;
+        }
+
+        .box img {
+            width: 400px;
         }
 
         .box .tooltiptext {
@@ -128,7 +131,6 @@
 
         .explainer h1 {
             font-size: 24px;
-            text-transform: uppercase;
         }
 
         .explainer p {
@@ -174,36 +176,29 @@
 
                 <div class="box-wrapper" data-clickable="true">
                     <div class="box" data-active="false">
-                        <h1>Vault</h1>
-
-                        <ul>
-                            <li data-clickable="true">Item 1</li>
-                            <li data-clickable="true">Item 2</li>
-                            <li data-clickable="true">Item 2</li>
-                        </ul>
-
+                        <img src="/img/vault-auth.svg" alt="Vault">
                         <span class="tooltiptext" id="tooltiptext">What is Vault?</span>
-
                     </div>
                 </div>
 
 
                 <div class="explainer-wrapper">
 
-                    <div class="tale-teller" id="tale-teller"></div>
+                    <div class="tale-teller"></div>
 
                     <div class="explainer" style="--splash-delay: 1">
-                        <h1>What is it?</h1>
-                        <p>It is a secrets engine for generating and managing X.509 certificates.</p>
+                        <h1>How Vault works</h1>
+                        <p>Authentication engines validate identities with configurable authentication methods.
+                        </p>
                     </div>
-
                     <div class="explainer" style="--splash-delay: 3">
-                        <p>It is a complementary solution to your external PKI providers to support an automated and
-                            dynamic generation of your PKI certificates.</p>
+                        <p>Valid client identities inherit privileges declared in Vault policies, and also receive
+                            session tokens.</p>
                     </div>
 
-                    <div class="explainer" style="--splash-delay: 6">
-                        <p>It is an independent root PKI provider for private environments.</p>
+                    <div class="explainer" id="tale-teller" style="--splash-delay: 6">
+                        <p>Tokens verify that clients are authorized and load relevant policies that grant privileges on
+                            secrets engines.</p>
                     </div>
 
                 </div>
@@ -213,6 +208,11 @@
     <div class="last">
         <a href="/">
             <img src="/img/left-arrow.svg" alt="Next">
+        </a>
+    </div>
+    <div class="next">
+        <a href="/page3.html">
+            <img src="/img/right-arrow.svg" alt="Next">
         </a>
     </div>
 
