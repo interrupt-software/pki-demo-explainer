@@ -80,7 +80,7 @@
 
         .box .tooltiptext {
             color: var(--gray-3);
-            font-size: 18px;
+            font-size: 12px;
             visibility: hidden;
             opacity: 0;
             width: inherit;
@@ -146,6 +146,22 @@
                 transform: translateY(0);
             }
         }
+
+        .next {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            bottom: 100px;
+            right: 100px;
+        }
+
+        .last {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            bottom: 100px;
+            left: 100px;
+        }
     </style>
 </head>
 
@@ -156,7 +172,7 @@
 
                 <div class="box-wrapper" data-clickable="true">
                     <div class="box" data-active="false">
-                        <img src="./img/vault_logo.svg" alt="Vault">
+                        <img src="/img/vault_logo.svg" alt="Vault">
                         <span class="tooltiptext" id="tooltiptext">What is Vault?</span>
 
                     </div>
@@ -182,8 +198,14 @@
                     </div>
 
                 </div>
+
             </div>
         </div>
+    </div>
+    <div class="next">
+        <a href="page2.html">
+            <img src="/img/right-arrow.svg" alt="Next">
+        </a>
     </div>
 </body>
 

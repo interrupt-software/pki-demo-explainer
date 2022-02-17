@@ -42,6 +42,7 @@ a {
   
 
 .main-container {
+    position: relative;
     border-style: solid;
     border-color: red;
 
