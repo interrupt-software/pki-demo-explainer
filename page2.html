@@ -79,6 +79,8 @@
 
         .box img {
             width: 400px;
+            transform: scale(1);
+            transition: transform 500ms;
         }
 
         .box img:hover {
@@ -88,7 +90,7 @@
 
         .box .tooltiptext {
             color: var(--gray-3);
-            font-size: 18px;
+            font-size: 12px;
             visibility: hidden;
             opacity: 0;
             width: inherit;
@@ -193,7 +195,7 @@
 
                     <div class="explainer" style="--splash-delay: 1">
                         <h1>How Vault works</h1>
-                        <p>Authentication engines validate identities with configurable authentication methods.
+                        <p>Authentication engines validate consumer identities with configurable authentication methods.
                         </p>
                     </div>
                     <div class="explainer" style="--splash-delay: 3">
