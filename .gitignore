@@ -19,7 +19,9 @@ test*
 ##############################
 test_data
 
-# Although this is transient,#
-# it should not be here.     #
-##############################
+# Although this is transient,  #
+# it should not be here. It is #
+# need in development but must #
+# not be shared.               #
+################################
 vault-unseal.json

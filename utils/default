@@ -1,4 +1,4 @@
-# Default server configuration
+# Nginx with PHP server configuration
 #
 server {
         listen 80 default_server;
