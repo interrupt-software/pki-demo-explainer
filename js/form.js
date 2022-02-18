@@ -13,10 +13,11 @@ window.onload = function () {
         form_request.style.display = 'none';
         form_results.style.display = 'block';
         tale_teller.innerHTML = `
-            <p>Your lab environment includes a HashiCorp Vault deployment. Follow the instructions to explore the deployment.
+            <p>Your lab environment includes a HashiCorp Vault deployment. 
+               Follow the instructions to explore the deployment.
             </p>
-            <p>Here is your Vault root token: <strong>${root_token}</strong>
-            </p>
+            <p>Here is your Vault root token:<\p> 
+            <p><strong>${root_token}</strong></p>
             `;
         tale_teller.style.display = 'block';
 
