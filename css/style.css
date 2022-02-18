@@ -42,10 +42,10 @@ a {
   
 
 .main-container {
-    position: relative;
-    border-style: solid;
-    border-color: red;
+    /* border-style: solid;
+    border-color: red; */
 
+    position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -53,8 +53,8 @@ a {
     justify-content: center;
 }
 .main-wrapper {
-    border-style: solid;
-    border-color: red;
+    /* border-style: solid;
+    border-color: red; */
 
     min-width: clamp(830px, 70vw, 100%);
     min-height: 70vh;
@@ -63,8 +63,8 @@ a {
     justify-content: center;
 }
 .main-content {
-    border-style: solid;
-    border-color: red;
+    /* border-style: solid;
+    border-color: red; */
 
     height: 100%;
     width: 100%;
@@ -74,8 +74,9 @@ a {
     justify-content: center;
 }
 .entity-area {
-    border-style: solid;
-    border-color: red;
+    /* border-style: solid;
+    border-color: red; */
+
     height: 90%;
     width: var(--pretty-box-width);
     display: flex;
@@ -83,8 +84,8 @@ a {
     justify-content: center;
 }
 .pretty-box {
-    border-style: solid;
-    border-color: red;
+    /* border-style: solid;
+    border-color: red; */
   
     background-color: var(--gray-2);
     border-radius: var(--pretty-box-border);
