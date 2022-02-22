@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script type="text/javascript" src="/js/vault-secret.js"></script>
+    <script type="text/javascript" src="/js/form.js"></script>
 
     <style>
         .box-wrapper {
@@ -204,6 +204,8 @@
         .form-results {
             display: none;
             text-align: center;
+
+
         }
 
         .responsive-iframe {
@@ -217,41 +219,24 @@
             color: var(--gray-1)
         }
 
-        .tale-teller {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--gray-5);
-            color: var(--gray-1);
-            border-radius: 5px;
+        .copy-text {
+            border-radius: 15px;
             padding: 15px;
-        }
-
-        .tale-teller {
             text-align: center;
             font-weight: 700;
-            cursor: copy;
+            background-color: var(--gray-5);
+            color: var(--gray-1)
         }
 
-        .tale-teller:hover {
+        .copy-text:hover {
             cursor: copy;
             background-color: var(--gray-4);
+            color: var(--gray-1)
         }
 
-        .tale-teller:active {
+        .copy-text:active {
             opacity: 1;
             animation: flash 1s;
-        }
-
-        .copy-icon {
-            width: 30px;
-            height: 30px;
-        }
-
-        .copy-icon>img {
-            width: 30px;
-            height: 30px;
         }
 
         @keyframes flash {
@@ -271,21 +256,48 @@
         <div class="main-wrapper" style="align-items: flex-start;">
             <div class="main-content" style="align-items: flex-start;">
 
+                <div class="explainer-wrapper">
+
+                    <div class="explainer" style="--splash-delay: 1; border:none;">
+                        <h1>Building Root Certificate Authority</h1>
+                        <p>The first step to begin this exercise is to assign an arbitrary name for our private Root CA.
+                        </p>
+                    </div>
+
+                    <div class="explainer explainer-no-border form-container" id="form-container"
+                        style="--splash-delay: 1">
+
+                        <form action="/php/setup_root_ca.php" method="post" target="form-content" id="ca-root-form">
+
+                            <label for="root-ca-name">Root CA Name:</label><br>
+                            <input type="text" name="root-ca-name" value="hashicat"><br>
+
+                            <label for="root-ca-cn">Root CA Common Name:</label><br>
+                            <input type="text" name="root-ca-cn" value="hashicat.io"><br>
+
+                            <label for="root-ca-ttl">Root CA TTL:</label><br>
+                            <input type="text" name="root-ca-ttl" value="24h"><br>
+
+                            <input type="submit">
+                        </form>
+
+                    </div>
+
+                    <div class="explainer explainer-no-border form-results" id="form-results" style="--splash-delay: 1">
+                        <iframe id="form-content" name="form-content" class="responsive-iframe"></iframe>
+                    </div>
+
+                    <div class="explainer" style="--splash-delay: 6">
+                        <p>It is an independent root PKI provider for private environments.</p>
+                    </div>
+
+                </div>
 
                 <div class="explainer-wrapper">
 
-                    <div class="explainer explainer-no-border" style="--splash-delay: 1;">
-                        <h1>About this exercise</h1>
-                        <p>Your lab environment includes a HashiCorp Vault deployment. Follow the
-                            instructions to explore the deployment.
+                    <div class="explainer" style="--splash-delay: 1">
+                        <p>It is a secrets engine for generating and managing X.509 certificates.
                         </p>
-                        <p>Here is your Vault root token:</p>
-                        <div class="tale-teller" id="tale-teller">
-                            <div class="copy-text" id="copy-root-token"></div>
-                            <div class="copy-icon" id="copy-icon">
-                                <img src="/img/copy.svg" alt="Copy">
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -294,13 +306,13 @@
         </div>
     </div>
     <div class="last">
-        <a href="page3.html">
+        <a href="page4.html">
             <img src="/img/left-arrow.svg" alt="Last">
         </a>
     </div>
     <div class="next">
-        <a href="page5.html">
-            <img src="/img/right-arrow.svg" alt="Last">
+        <a href="page6.html">
+            <img src="/img/right-arrow.svg" alt="Next">
         </a>
     </div>
 </body>
