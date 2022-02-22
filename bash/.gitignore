@@ -1,0 +1,17 @@
+# Anthing from osx
+.DS_Store
+
+# Any testing pem certificates, keys, raw certs
+*.pem
+*.key
+*.crt
+
+# Just in case we forget to remove the csr
+*.csr
+
+# The `secret store` files in this repo
+.app_role_creds
+.wrapped_token
+
+# Local logging for testing
+server.log
