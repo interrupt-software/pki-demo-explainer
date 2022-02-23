@@ -1,9 +1,10 @@
-source ${PWD}/00_env_root_ca_vars.bash
+export _PWD="/var/www/html/bash"
+
+source ${_PWD}/00_env_root_ca_vars.bash
 
 export VAULT_ADDR="http://127.0.0.1:8200"
-
-export CERTS_HOME="${PWD}/certs"
-export APP_HOME="${PWD}/app"
+export CERTS_HOME="${_PWD}/certs"
+export APP_HOME="${_PWD}/app"
 
 # Should inherit RootName from 00_env_root_ca_vars.bash
 #export RootName="interrupt"
