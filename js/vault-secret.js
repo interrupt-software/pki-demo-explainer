@@ -18,6 +18,7 @@ window.onload = function () {
     });
 
     tale_teller.addEventListener('click', () => {
+        window.getSelection().selectAllChildren(copy_root_token);
         navigator.clipboard.writeText(root_token);
         copy_icon.innerHTML = `
           <img src="/img/check-mark.svg" alt="Copied">

@@ -135,6 +135,10 @@
             border: none;
         }
 
+        .commentary {
+            font-size: small;
+        }
+
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -288,21 +292,21 @@
                         </div>
                     </div>
 
-                </div>
+                    <div class="explainer commentary" style="--splash-delay: 3;">
+                        <p>Please use `CMD + C` or `CTRL + C` to copy your root token.
+                            The Clipboard API has been blocked because of a permissions policy applied to the
+                            current document.
+                        </p>
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="last">
-        <a href="page3.html">
-            <img src="/img/left-arrow.svg" alt="Last">
-        </a>
-    </div>
-    <div class="next">
-        <a href="page5.html">
-            <img src="/img/right-arrow.svg" alt="Last">
-        </a>
-    </div>
+        <div class="last">
+            <a href="page3.html">
+                <img src="/img/left-arrow.svg" alt="Last">
+            </a>
+        </div>
 </body>
 
 </html>
