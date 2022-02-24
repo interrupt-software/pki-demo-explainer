@@ -1,4 +1,4 @@
-source ${PWD}/01_env_bootstrap.bash
+source ${BASH_HOME}/01_env_bootstrap.bash
 
 # This sequence simulates the broker accessing the secret store
 # within the scope of the broker. We assume the access credentials

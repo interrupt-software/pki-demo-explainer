@@ -1,4 +1,4 @@
-source ${PWD}/01_env_bootstrap.bash
+source ${BASH_HOME}/01_env_bootstrap.bash
 
 vault auth disable ${ROLE_NAME}
 

@@ -1,4 +1,4 @@
-source ${PWD}/01_env_bootstrap.bash
+source ${BASH_HOME}/01_env_bootstrap.bash
 
 export ROLE_ID=$(vault read -format=json \
   auth/${ROLE_NAME}/role/${ROLE_NAME}/role-id \

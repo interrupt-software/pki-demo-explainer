@@ -1,4 +1,4 @@
-source ${PWD}/01_env_bootstrap.bash
+source ${BASH_HOME}/01_env_bootstrap.bash
 
 rm -f ${CERTS_HOME}/*
 rm -f ${APP_HOME}/*.crt

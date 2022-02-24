@@ -1,5 +1,5 @@
-source ${PWD}/01_env_bootstrap.bash
-source ${PWD}/06_broker_auth.bash
+source ${BASH_HOME}/01_env_bootstrap.bash
+source ${BASH_HOME}/06_broker_auth.bash
 
 export VAULT_TOKEN=${APP_TOKEN}
 export APP_NAME="app1.dev"

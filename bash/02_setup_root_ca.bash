@@ -3,11 +3,8 @@
 ########################
 . /root/demo-magic/demo-magic.sh
 
-export _PWD="/var/www/html/bash"
-
-source ${_PWD}/01_env_bootstrap.bash
-mkdir -p ${CERTS_HOME}
-chmod 777 ${CERTS_HOME}
+export BASH_HOME="/var/www/html/bash"
+source ${BASH_HOME}/01_env_bootstrap.bash
 
 echo "# Ensure there is nothing on our desired endpoint:"
 echo ""
@@ -23,7 +20,10 @@ printf '\r'; printf ' %0.s' {0..28}; printf '\n%.s' {1..2}
 
 echo "# 2- Configure the maximum lease period for the root CA to ${CA_ttl}:"
 echo ""
-pei "vault secrets tune -max-lease-ttl=${CA_ttl} ${RootCAName}"
+pei "vault secrets tune \\
+	-max-lease-ttl=${CA_ttl} \\
+	-description=\"Root Certificate Authority\" \\
+	${RootCAName}"
 echo ""
 read -n 1 -s -r -p "Press any key to continue..."
 printf '\r'; printf ' %0.s' {0..28}; printf '\n%.s' {1..2}
