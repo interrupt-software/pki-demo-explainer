@@ -40,7 +40,6 @@ a {
     text-decoration: none; /* no underline */
   }
   
-
 .main-container {
     /* border-style: solid;
     border-color: red; */
@@ -57,7 +56,7 @@ a {
     border-color: red; */
 
     min-width: clamp(830px, 70vw, 100%);
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,71 +69,98 @@ a {
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-end;
 }
-.entity-area {
-    /* border-style: solid;
-    border-color: red; */
 
-    height: 90%;
-    width: var(--pretty-box-width);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#controller_service, 
+#scheduler_service,
+#etcd_service,
+#api_service {
+    fill: #FBFAF5;
 }
-.pretty-box {
-    /* border-style: solid;
-    border-color: red; */
-  
-    background-color: var(--gray-2);
-    border-radius: var(--pretty-box-border);
-    max-height: 50px;
-    height: 50px;
-    width: 80%;
-    transition: 
-      height 250ms ease-in-out,
-      max-height 250ms ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
-    color: var(--gray-6)
-  }
-.pretty-box:hover {
-    background-color: var(--gray-1);
-}
-.box-label {
-    position: relative;
-    width: 80%;
-    z-index: 100;
-    margin: 10px;
-    height: 50px;
-    text-align: center;
-}
-.inner-box {
-    visibility:hidden;
-    opacity:0;
 
-    position: relative;
-    background-color: var(--gray-6);
-    width: 80%;
-    z-index: 200;
-    margin: 10px;
-    height: 50px;
-    color: var(--gray-2);
+#controller_service:hover,
+#scheduler_service:hover,
+#etcd_service:hover,
+#api_service:hover {
+    fill: #FFEAE5;
 }
-.inner-box:hover {
-    background-color: var(--gray-5);
+
+#kubelet, 
+#pod,
+#app {
+    fill: #FBFAF5;
 }
-.pretty-box[data-expanded="true"] > .inner-box {
-    transition:
-      visibility 500ms linear 250ms,
-      opacity 500ms linear 250ms;
-    visibility:visible;
-    opacity:1;
+
+
+#worker_node:hover, 
+#kubelet:hover, 
+#pod:hover,
+#container:hover, 
+#app:hover,
+#volume:hover {
+    fill: #FFEAE5;
 }
-.pretty-box[data-expanded="false"] > .inner-box {
-    visibility:hidden;
-    opacity:0;
+
+#push_horizontal g {
+    stroke: #02A8EF;
+    animation: animateH 2s ease forwards infinite;
+    animation-delay: calc(var(--order) * 2000ms);
+}
+
+#push_vertical g {
+    stroke: #02A8EF;
+    animation: animateV 2s ease forwards infinite;
+    animation-delay: calc(var(--order) * 2000ms);
+}
+
+@keyframes animateH {
+    0% {
+        opacity: 0.5;
+        transform: translateX(0.5%);
+    }
+
+    50% {
+        opacity: 0.75;
+        stroke: #FF7070;
+        transform: translateX(-0.25%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-0.5%);
+    }
+}
+
+@keyframes animateV {
+    0% {
+        opacity: 0.5;
+        transform: translateY(-0.5%);
+    }
+
+    50% {
+        opacity: 0.75;
+        stroke: #FF7070;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0.5%);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30%);
+    }
+
+    30%,
+    50%,
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
