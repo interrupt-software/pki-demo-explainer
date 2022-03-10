@@ -16,7 +16,7 @@ client = hvac.Client(
 
 generate_certificate_response = client.secrets.pki.generate_certificate(
    name='interrupt-int-role',
-   common_name='app1.dev.interrupt.com',
+   common_name='app1.dev.hashicat.io',
    mount_point='interrupt-ca-intermediate'
 )
 
