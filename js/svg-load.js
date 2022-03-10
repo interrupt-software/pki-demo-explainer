@@ -4,7 +4,7 @@ window.onload = function () {
     const parser = new DOMParser();
 
     async function fetchSVG() {
-        const response = await fetch('/img/kubernetes_security-3.svg');
+        const response = await fetch('/img/workflow-create-intermediate.svg');
         const svgText = await response.text();
         const svgDoc = parser.parseFromString(svgText, 'text/xml');
         svg_diagram.appendChild(svgDoc.documentElement);
