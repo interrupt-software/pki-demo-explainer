@@ -5,6 +5,7 @@
 
 source ${BASH_HOME}/01_env_bootstrap.bash
 
+clear
 echo "# 1- This sequence simulates the broker accessing the secret store \\
 # within the scope of the broker. We assume the access credentials \\
 # are valid and should fail nicely."

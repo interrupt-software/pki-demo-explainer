@@ -3,6 +3,8 @@
 ########################
 . /root/demo-magic/demo-magic.sh
 
+source ${BASH_HOME}/01_env_bootstrap.bash
+
 clear
 echo "# 1- Get roleID details "
 echo ""
@@ -27,7 +29,7 @@ echo "# 3- Store the wrapped token for nearly immediate use."
 echo "# This simulates storing the wrapped token for the secret id in a secret store \\
 # within the scope of the broker. We are limiting the use of the wrapped token \\
 # to about 300 seconds." 
-
+echo ""
 pei "cat <<EOF > ${SECRET_STORE_WRAPPED_TOKEN}
 {
   \"token\" : \"${WRAPPED_TOKEN}\"
@@ -40,9 +42,11 @@ printf '\r'; printf ' %0.s' {0..28}; printf '\n%.s' {1..2}
 unset WRAPPED_TOKEN
 
 echo "# 3.1- Expose the wrapped token:"
+echo ""
 pei "export WRAPPED_TOKEN=\$(cat ${SECRET_STORE_WRAPPED_TOKEN} | jq -r '.token')"
 echo ""
 echo "# 3.2- Use the wrapped token to get the SecretID for the RoleID:"
+echo ""
 pei "export SECRET_ID=\$(VAULT_TOKEN=\${WRAPPED_TOKEN} vault unwrap -format=json \\
   | jq -r '.data.secret_id')"
 echo ""

@@ -3,7 +3,6 @@
 ########################
 . /root/demo-magic/demo-magic.sh
 
-# export BASH_HOME="/var/www/html/bash"
 source ${BASH_HOME}/01_env_bootstrap.bash
 
 echo "# Ensure there is nothing on our desired endpoint:"
