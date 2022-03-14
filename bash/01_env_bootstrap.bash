@@ -30,6 +30,6 @@ export SECRET_STORE_WRAPPED_TOKEN="${BASH_HOME}/.wrapped_token"
 
 ## Build assets directories
 mkdir -p ${CERTS_HOME}
-chmod 777 ${CERTS_HOME}
+chmod 755 ${CERTS_HOME}
 mkdir -p ${APP_HOME}
-chmod 777 ${APP_HOME}
+chmod 755 ${APP_HOME}
