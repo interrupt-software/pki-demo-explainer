@@ -1,5 +1,5 @@
-export DEMO_MAGIC=" /home/vagrant/demo-magic"
-export BASH_HOME="/home/vagrant/bash"
+export DEMO_MAGIC=" /root/demo-magic"
+export BASH_HOME="/root/www/bash"
 export CERTS_HOME="${BASH_HOME}/certs"
 export APP_HOME="${BASH_HOME}/app"
 
