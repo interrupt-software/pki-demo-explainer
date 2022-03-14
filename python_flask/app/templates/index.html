@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vault PKI Primer</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static',filename='fav-icon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static',filename='fav-icon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static',filename='fav-icon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static',filename='fav-icon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-wrapper">
+            <div class="main-content">
+
+                <div class="box-wrapper" data-clickable="true">
+                    <div class="box" data-active="false">
+                        <img src="{{ url_for('static', filename='img/vault_logo.svg') }}" alt="Vault">
+                        <span class="tooltiptext" id="tooltiptext">What is Vault?</span>
+
+                    </div>
+                </div>
+
+
+                <div class="explainer-wrapper">
+
+                    <div class="explainer" style="--splash-delay: 1">
+                        <h1>HashiCorp Vault</h1>
+                        <p>Vault is an identity-based secrets and encryption management system.</p>
+                    </div>
+
+                    <div class="explainer" style="--splash-delay: 3">
+                        <p>A secret is anything that you want to tightly control access to, such as API encryption
+                            keys, passwords, or certificates.</p>
+                    </div>
+
+                    <div class="explainer" style="--splash-delay: 6">
+                        <p>Secrets engines are components which store, generate, or encrypt data.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="next">
+        <a href="{{ url_for('two') }}">
+            <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
+        </a>
+    </div>
+</body>
+
+</html>

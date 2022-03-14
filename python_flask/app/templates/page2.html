@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vault PKI Primer</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static',filename='fav-icon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static',filename='fav-icon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static',filename='fav-icon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static',filename='fav-icon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <!-- <script src="{{ url_for('static', filename='js/main.js') }}"></script> -->
+
+    <!-- <style>
+        .box-wrapper {
+            border-radius: 5px 5px 0px 0px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 50%;
+
+            padding: 50px;
+        }
+
+        .box-wrapper h1 {
+            margin: 0;
+            font-size: 24px;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .box-wrapper ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .box-wrapper li {
+            border: solid var(--gray-4);
+            border-radius: 5px 5px 0px 0px;
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .box-wrapper li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            cursor: pointer;
+            /* border: solid var(--gray-4); */
+            text-transform: uppercase;
+            width: 400px;
+            /* height: 100%; */
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .box img {
+            width: 400px;
+            transform: scale(1);
+            transition: transform 500ms;
+        }
+
+        .box img:hover {
+            transform: scale(1.2);
+            transition: transform 250ms;
+        }
+
+        .box .tooltiptext {
+            color: var(--gray-3);
+            font-size: 12px;
+            visibility: hidden;
+            opacity: 0;
+            width: inherit;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            /* text-transform: none; */
+
+            position: relative;
+            z-index: 1;
+            top: 50px;
+
+            transition:
+                visibility 500ms linear 500ms ease-in,
+                opacity 500ms linear 500ms ease-in;
+        }
+
+        .box:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .explainer-wrapper {
+            width: 50%;
+            padding: 50px;
+        }
+
+        .explainer {
+            width: 400px;
+            /* display: none; */
+            opacity: 0;
+            animation: fadeInUp 10s ease forwards;
+            animation-delay: calc(var(--splash-delay) * 500ms);
+            border-bottom: solid var(--gray-5);
+        }
+
+        .explainer:last-child {
+            border-bottom: none;
+        }
+
+        .explainer h1 p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .explainer h1 {
+            font-size: 24px;
+        }
+
+        .explainer p {
+            font-size: 18px;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30%);
+            }
+
+            30%,
+            50%,
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .next {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            bottom: 100px;
+            right: 100px;
+        }
+
+        .last {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            bottom: 100px;
+            left: 100px;
+        } -->
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-wrapper">
+            <div class="main-content">
+
+                <div class="box-wrapper" data-clickable="true">
+                    <div class="box" data-active="false">
+                        <img src="{{ url_for('static', filename='img/vault_auth.svg') }}" alt="Vault Authentication">
+                        <span class="tooltiptext" id="tooltiptext">How does Vault work?</span>
+                    </div>
+                </div>
+
+
+                <div class="explainer-wrapper">
+
+                    <div class="explainer" style="--splash-delay: 1">
+                        <h1>How Vault works</h1>
+                        <p>Authentication engines validate consumer identities with configurable authentication methods.
+                        </p>
+                    </div>
+                    <div class="explainer" style="--splash-delay: 3">
+                        <p>Valid client identities inherit privileges declared in Vault policies, and also receive
+                            session tokens.</p>
+                    </div>
+
+                    <div class="explainer" id="tale-teller" style="--splash-delay: 6">
+                        <p>Tokens verify that clients are authorized and load relevant policies that grant privileges on
+                            secrets engines.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="last">
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
+        </a>
+    </div>
+    <div class="next">
+        <a href="{{ url_for('three') }}">
+            <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
+        </a>
+    </div>
+
+</body>
+
+</html>

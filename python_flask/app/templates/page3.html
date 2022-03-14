@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vault PKI Primer</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static',filename='fav-icon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static',filename='fav-icon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static',filename='fav-icon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static',filename='fav-icon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='js/vault-secret.js') }}"></script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-wrapper" style="align-items: flex-start;">
+            <div class="main-content" style="align-items: flex-start;">
+
+                <div class="explainer-wrapper">
+
+                    <div class="explainer explainer-no-border" style="--splash-delay: 1;">
+                        <h1>About this exercise</h1>
+                        <p>Your lab environment includes a HashiCorp Vault deployment. Follow the
+                            instructions to explore the deployment.
+                        </p>
+                        <p>Here is your Vault root token:</p>
+                        <div class="tale-teller" id="tale-teller">
+                            <div class="copy-text" id="copy-root-token"></div>
+                            <div class="copy-icon" id="copy-icon">
+                                <img src="{{ url_for('static', filename='img/copy.svg') }}" alt="Copy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="explainer commentary" style="--splash-delay: 3;">
+                        <p>Please use `CMD + C` or `CTRL + C` to copy your root token.
+                            The Clipboard API has been blocked because of a permissions policy applied to the
+                            current document.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="last">
+            <a href="{{ url_for('two') }}">
+                <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
+            </a>
+        </div>
+        <div class="next">
+            <a href="{{ url_for('four') }}">
+                <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
+            </a>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vault PKI Primer</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static',filename='fav-icon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static',filename='fav-icon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static',filename='fav-icon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static',filename='fav-icon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='js/vault-ssl-certs-serial.js') }}"></script>
+
+    <style>
+        .explainer-wrapper {
+            width: 50%;
+            padding: 50px;
+        }
+
+        .explainer {
+            width: 300px;
+            opacity: 0;
+            animation: fadeInUp 10s ease forwards;
+            animation-delay: calc(var(--splash-delay) * 500ms);
+            border-bottom: solid var(--gray-5);
+        }
+
+        .explainer:last-child {
+            border-bottom: none;
+        }
+
+        .explainer h1 p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .explainer h1 {
+            font-size: 24px;
+        }
+
+        .explainer p {
+            font-size: 18px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            /* gap: 10px; */
+        }
+
+        .grid-cell {
+            width: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .grid-cell[data-populated="true"] {
+            border-style: solid;
+            border-color: #B3B3B3;
+            border-radius: 5px;
+            border-width: 0.25px;
+            box-shadow: 3px 3px 5px -5px hsl(259, 0%, 25%);
+            width: 230px;
+            padding: 20px;
+            background-color: hsl(199, 50%, 95%);
+        }
+
+        .grid-cell[data-vline="upper"] {
+            border-left-style: solid;
+            border-color: #B3B3B3;
+            left: 50%;
+            height: 50%;
+            position: relative;
+        }
+
+        .grid-cell[data-vline="upper-2"] {
+            border-right-style: solid;
+            border-color: #B3B3B3;
+            height: 80%;
+            position: relative;
+        }
+
+        .grid-cell[data-vline="upper-3"] {
+            border-right-style: solid;
+            border-color: #B3B3B3;
+            height: 50%;
+            top: 50%;
+            position: relative;
+        }
+
+        .grid-cell[data-hline="right"] {
+            border-bottom-style: solid;
+            width: 50%;
+            border-bottom-left-radius: 5px;
+            position: relative;
+        }
+
+        .grid-cell[data-hline="left"] {
+            border-top-style: solid;
+            border-top-right-radius: 5px;
+            position: relative;
+        }
+
+        .grid-cell[data-hline="left-2"] {
+            border-bottom-style: solid;
+            border-bottom-right-radius: 5px;
+            position: relative;
+        }
+
+        .grid-cell[data-hline="flat"] {
+            border-color: #B3B3B3;
+            border-top-style: solid;
+            width: 100%;
+            height: 50%;
+            top: 50%;
+            position: relative;
+        }
+
+        .grid-hline-fixed {
+            border-bottom-style: solid;
+            border-color: #B3B3B3;
+            width: 275px;
+            height: 62.5%;
+            right: 0px;
+            padding: 0;
+        }
+
+        .grid-title,
+        .grid-private-key,
+        .grid-public-key {
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .grid-private-key,
+        .grid-public-key {
+            border-style: solid;
+            border-color: #B3B3B3;
+            border-radius: 5px;
+            border-width: 0.25px;
+            box-shadow: 3px 3px 5px -5px hsl(259, 0%, 25%);
+            background-color: hsla(0, 0%, 70%, 0.151);
+            font-weight: 300;
+            background-color: #FBFAF5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-wrapper">
+            <div class="main-content">
+
+                <div class="grid-container" id="grid-container">
+
+                    <div class="grid-cell" id="grid-cell-1" data-populated="true">
+                        <div class="grid-title">ROOT CA</div>
+                        <div class="grid-private-key">Private Key</div>
+                        <div class="grid-public-key" id="root-ca-serial-key-1">
+                            56-87-81-c1-6b-fc-07-47-e1-d9-52-c7-13-de-7e-54-e1-ad-07-d7
+                        </div>
+                    </div>
+                    <div class="grid-cell" id="grid-cell-2" data-hline="flat"></div>
+                    <div class="grid-cell" id="grid-cell-3" data-vline="upper-3" data-hline="left"></div>
+                    <div class="grid-cell" id="grid-cell-4"></div>
+                    <div class="grid-cell" id="grid-cell-5" data-vline="upper" data-hline="right"></div>
+                    <div class="grid-cell" id="grid-cell-6" data-populated="true">
+                        <div class="grid-title">Intermediate</div>
+                        <div class="grid-private-key" id="root-ca-serial-key-2">
+                            56-87-81-c1-6b-fc-07-47-e1-d9-52-c7-13-de-7e-54-e1-ad-07-d7
+                        </div>
+                        <div class="grid-public-key" id="intermediate-serial-key-1">
+                            75-f8-87-b6-f0-b6-b5-6f-e3-c4-21-16-93-1e-ad-44-c9-8d-9e-ed
+                        </div>
+                    </div>
+                    <div class="grid-cell" id="grid-cell-7" data-vline="upper-2" data-hline="left-2">
+                        <div class="grid-hline-fixed"></div>
+                    </div>
+                    <div class="grid-cell" id="grid-cell-8" data-vline="upper-3" data-hline="left"></div>
+                    <div class="grid-cell" id="grid-cell-9"></div>
+                    <div class="grid-cell" id="grid-cell-10" data-vline="upper" data-hline="right"></div>
+                    <div class="grid-cell" id="grid-cell-11" data-populated="true">
+                        <div class="grid-title">Leaf Domain</div>
+                        <div class="grid-private-key" id="intermediate-serial-key-2">
+                            75-f8-87-b6-f0-b6-b5-6f-e3-c4-21-16-93-1e-ad-44-c9-8d-9e-ed
+                        </div>
+                        <div class="grid-public-key" id="leaf-serial-key">Public Key</div>
+                    </div>
+                    <div class="grid-cell" id="grid-cell-12" data-vline="upper-2" data-hline="left-2"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="last">
+        <a href="{{ url_for('nine') }}">
+            <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
+        </a>
+    </div>
+    <div class="next">
+        <a href="{{ url_for('eleven') }}">
+            <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
+        </a>
+    </div>
+
+</body>
+
+</html>

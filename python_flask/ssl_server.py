@@ -3,8 +3,9 @@
 import socket
 import ssl
 import logging
+from logging.handlers import RotatingFileHandler
 
-logging.basicConfig(filename='server.log', format='%(asctime)s %(name)s %(levelname)s: %(message)s ', level=logging.DEBUG)
+logging.basicConfig(filename='static/logs/server.log', format='%(asctime)s %(name)s %(levelname)s: %(message)s ', level=logging.DEBUG)
 
 # Bind the socket to the port
 server_address = ('0.0.0.0', 10443)
@@ -48,6 +49,5 @@ while True:
         try:
             conn.shutdown(socket.SHUT_RDWR)
         except OSError:
-            logging.info("OSError: Connection reset by peer. No connection to shutdown.")
+            logging.warning("OSError: Connection reset by peer. No connection to shutdown.")
         conn.close()
-
