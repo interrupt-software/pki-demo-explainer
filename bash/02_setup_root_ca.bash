@@ -3,7 +3,7 @@
 ########################
 . /root/demo-magic/demo-magic.sh
 
-export BASH_HOME="/var/www/html/bash"
+# export BASH_HOME="/var/www/html/bash"
 source ${BASH_HOME}/01_env_bootstrap.bash
 
 echo "# Ensure there is nothing on our desired endpoint:"
@@ -60,14 +60,14 @@ echo ""
 read -n 1 -s -r -p "Press any key to continue..."
 printf '\r'; printf ' %0.s' {0..28}; printf '\n%.s' {1..2}
 
-# echo "# 6 - Create bundle for dev.${CommonName}:"
-# export leaf_common_name="dev.${CommonName}"
-# echo ""
-# pei "vault write -format=json ${RootCAName}/issue/${CARoleName} \\
-# 	common_name=\"${leaf_common_name}\" \\
-# 	province=\"Ontario\" \\
-# 	organization=\"HashiCat Software\" \\
-# 	ttl=${CA_ttl} | tee \\
-# 	>(jq -r .data.certificate > ${CERTS_HOME}/${RootCAName}_${leaf_common_name}_certicate.pem) \\
-# 	>(jq -r .data.issuing_ca  > ${CERTS_HOME}/${RootCAName}_${leaf_common_name}_issuing_ca.pem) \\
-# 	>(jq -r .data.private_key > ${CERTS_HOME}/${RootCAName}_${leaf_common_name}_private_key.key)"
+echo "# 6- Test the engine and create bundle for dev.${CommonName}:"
+export leaf_common_name="dev.${CommonName}"
+echo ""
+pei "vault write -format=json ${RootCAName}/issue/${CARoleName} \\
+	common_name=\"${leaf_common_name}\" \\
+	province=\"Ontario\" \\
+	organization=\"HashiCat Software\" \\
+	ttl=${CA_ttl} | tee \\
+	>(jq -r .data.certificate > ${CERTS_HOME}/${RootCAName}_${leaf_common_name}_certicate.pem) \\
+	>(jq -r .data.issuing_ca  > ${CERTS_HOME}/${RootCAName}_${leaf_common_name}_issuing_ca.pem) \\
+	>(jq -r .data.private_key > ${CERTS_HOME}/${RootCAName}_${leaf_common_name}_private_key.key)"

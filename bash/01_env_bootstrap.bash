@@ -15,12 +15,13 @@ export RootCAName="${RootName}-ca-root"
 export CARoleName="${RootName}-ca-role"
 
 export InterimCAName="${RootName}-ca-intermediate"
-export IntCA_ttl="60m"
-export Cert_ttl="5m"
+export IntCA_ttl="12h"
+export Cert_ttl="8h"
 export IntRoleName="${RootName}-int-role"
 
 # For PKI distribution
-export ROLE_NAME="broker"
+export ROLE_NAME="pki-broker-role"
+export ROLE_POLICY="pki-broker-policy"
 export SECRET_ID_NUM_USES=0
 export TOKEN_NUM_USES=0
 export SECRET_STORE_APP_ROLE_CREDS="${BASH_HOME}/.app_role_creds"
