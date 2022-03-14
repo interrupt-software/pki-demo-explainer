@@ -4,8 +4,11 @@ import socket
 import ssl
 import logging
 from logging.handlers import RotatingFileHandler
+import os
 
-logging.basicConfig(filename='static/logs/server.log', format='%(asctime)s %(name)s %(levelname)s: %(message)s ', level=logging.DEBUG)
+www_home=os.environ["WWW_HOME"]
+
+logging.basicConfig(filename=www_home+'/app/static/logs/server.log', format='%(asctime)s %(name)s %(levelname)s: %(message)s ', level=logging.DEBUG)
 
 # Bind the socket to the port
 server_address = ('0.0.0.0', 10443)
