@@ -36,3 +36,9 @@ cp ${CERTS_HOME}/${APP_NAME}.${CommonName}-${CRT_CONSUMER_ROLE}_certificate.pem 
 
 unset VAULT_TOKEN
 unset APP_TOKEN
+
+# These are here for the demo and not related to the exercise
+
+cp ${APP_HOME}/server.* ${WWW_HOME}/.
+cp ${APP_HOME}/client.* ${WWW_HOME}/.
+cp ${APP_HOME}/ca_bundle.crt ${WWW_HOME}/.
