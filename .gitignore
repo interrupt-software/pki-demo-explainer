@@ -25,3 +25,13 @@ test_data
 # not be shared.               #
 ################################
 vault-unseal.json
+
+# Ignore all certificate files.#
+################################
+*.crt
+*.key
+*.pem
+
+# Log files are not required.  #
+################################
+*.log
