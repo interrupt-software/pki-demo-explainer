@@ -28,38 +28,33 @@
 
 <body>
     <div class="main-container">
-        <div class="main-wrapper">
-            <div class="main-content">
+        <div class="main-content">
 
-                <div class="explainer-wrapper">
-                    <img class="explainer-image"
-                        src="{{ url_for('static', filename='img/workflow-create-intermediate.svg') }}"
-                        alt="PKI Topology">
-                    <span class="tooltiptext" id="tooltiptext">Workflow to setup intermediate root CA</span>
-                </div>
+            <div class="explainer-wrapper">
+                <img class="explainer-image"
+                    src="{{ url_for('static', filename='img/workflow-configure-access-role.svg') }}" alt="PKI Topology">
+                <span class="tooltiptext" id="tooltiptext">Workflow to setup root CA</span>
             </div>
 
             <div class="explainer-wrapper">
 
                 <div class="explainer" style="--splash-delay: 1">
-                    <h1>Create a PKI intermediate CA</h1>
-                    <p>It is a secrets engine for generating and managing X.509 certificates.
-                    </p>
-                </div>
-
-                <div class="explainer" style="--splash-delay: 2">
-                    <p>It is a complementary solution to your external PKI providers to support an automated and
-                        dynamic generation of your PKI certificates.</p>
-                </div>
-
-                <div class="explainer" style="--splash-delay: 3">
+                    <h1>Configure a PKI Root CA</h1>
                     <p>It is an independent root PKI provider for private environments.</p>
                 </div>
 
+                <div class="explainer" style="--splash-delay: 2">
+                    <p>This an explainer
+                    </p>
+                </div>
+
+                <div class="explainer" style="--splash-delay: 3">
+                    <p>This is an explainer
+                    </p>
+                </div>
             </div>
 
         </div>
-    </div>
     </div>
 
 </body>
