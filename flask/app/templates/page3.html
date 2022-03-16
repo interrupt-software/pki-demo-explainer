@@ -33,38 +33,36 @@
 
 <body>
     <div class="main-container">
-        <div class="main-wrapper" style="align-items: flex-start;">
-            <div class="main-content" style="align-items: flex-start;">
+        <div class="main-content" style="align-items: flex-start;">
 
-                <div class="explainer-wrapper">
+            <div class="explainer-wrapper">
 
-                    <div class="explainer explainer-no-border" style="--splash-delay: 1;">
-                        <h1>About this exercise</h1>
-                        <p>Your lab environment includes a HashiCorp Vault deployment. Follow the
-                            instructions to explore the deployment.
-                        </p>
-                        <p>Here is your Vault root token:</p>
-                        <div class="tale-teller" id="tale-teller">
-                            <div class="copy-text" id="copy-root-token"></div>
-                            <div class="copy-icon" id="copy-icon">
-                                <img src="{{ url_for('static', filename='img/copy.svg') }}" alt="Copy">
-                            </div>
+                <div class="explainer explainer-no-border" style="--splash-delay: 1;">
+                    <h1>About this exercise</h1>
+                    <p>Your lab environment includes a HashiCorp Vault deployment. Follow the
+                        instructions to explore the deployment.
+                    </p>
+                    <p>Here is your Vault root token:</p>
+                    <div class="tale-teller" id="tale-teller">
+                        <div class="copy-text" id="copy-root-token"></div>
+                        <div class="copy-icon" id="copy-icon">
+                            <img src="{{ url_for('static', filename='img/copy.svg') }}" alt="Copy">
                         </div>
-                    </div>
-
-                    <div class="explainer explainer-no-border" style="--splash-delay: 3;">
-                        <p>Please use `CMD + C` or `CTRL + C` to copy your root token.
-                        </p>
-
-                        <p>The Clipboard API is blocked because of a permissions policy applied to the current
-                            document.
-                        </p>
                     </div>
                 </div>
 
+                <div class="explainer explainer-no-border" style="--splash-delay: 3;">
+                    <p>Please use `CMD + C` or `CTRL + C` to copy your root token.
+                    </p>
+
+                    <p>The Clipboard API is blocked because of a permissions policy applied to the current
+                        document.
+                    </p>
+                </div>
             </div>
 
         </div>
+
         <div class="last">
             <a href="{{ url_for('two') }}">
                 <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">

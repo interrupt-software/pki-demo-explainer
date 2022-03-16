@@ -63,13 +63,11 @@ a {
 }
 
 .main-content {
-    border-style: solid;
+    /* border-style: solid;
     border-color: var(--gray-5);
-    background-color: var(--gray-6);
-    /* min-height: calc(100vh - 96px * 4);
-    max-height: calc(100vh - 96px * 2); */
+    background-color: var(--gray-6); */
+    width: var(--instruqt-view-width);
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -77,14 +75,17 @@ a {
 .explainer-wrapper {
     /* border-style: solid;
     border-color: red;  */
-    width: calc(var(--instruqt-view-width)/2)
+    /* width: calc(var(--instruqt-view-width)/2) */
 }
 
 .explainer-wrapper .explainer-image {
     /* border-style: solid;
     border-color: red; */
     padding: 20px;
+    min-width: 300px;
+    min-height: 300px;
     max-width: calc(var(--instruqt-view-width)/2 - 40px);
+    max-height: calc(var(--instruqt-view-height) - 40px);
 }
 
 .explainer-wrapper .tooltiptext {
@@ -113,7 +114,8 @@ a {
 }
 
 .explainer {
-    /* width: 400px; */
+    padding: 20px;
+    width: 400px;
     opacity: 0;
     animation: fadeInUp 3s ease forwards;
     animation-delay: calc(var(--splash-delay) * 100ms);
