@@ -28,36 +28,34 @@
 
 <body>
     <div class="main-container">
-        <div class="main-wrapper">
-            <div class="main-content">
+        <div class="main-content">
 
-                <div class="explainer-wrapper" style="--splash-delay: 1">
-                    <img class="explainer-image" src="{{ url_for('static', filename='img/pki_topology.svg') }}"
-                        alt="PKI Topology">
-                    <span class="tooltiptext" id="tooltiptext">PKI Main Entities</span>
+            <div class="explainer-wrapper" style="--splash-delay: 1">
+                <img class="explainer-image" src="{{ url_for('static', filename='img/pki_topology.svg') }}"
+                    alt="PKI Topology">
+                <span class="tooltiptext" id="tooltiptext">PKI Main Entities</span>
+            </div>
+
+
+            <div class="explainer-wrapper">
+
+                <div class="explainer" style="--splash-delay: 1">
+                    <h1>The PKI Secrets Engine</h1>
+                    <p>It is a secrets engine for generating and managing X.509 certificates.
+                    </p>
                 </div>
 
+                <div class="explainer" style="--splash-delay: 3">
+                    <p>It is a complementary solution to your external PKI providers to support an automated and
+                        dynamic generation of your PKI certificates.</p>
+                </div>
 
-                <div class="explainer-wrapper">
-
-                    <div class="explainer" style="--splash-delay: 1">
-                        <h1>The PKI Secrets Engine</h1>
-                        <p>It is a secrets engine for generating and managing X.509 certificates.
-                        </p>
-                    </div>
-
-                    <div class="explainer" style="--splash-delay: 3">
-                        <p>It is a complementary solution to your external PKI providers to support an automated and
-                            dynamic generation of your PKI certificates.</p>
-                    </div>
-
-                    <div class="explainer" style="--splash-delay: 6">
-                        <p>It is an independent root PKI provider for private environments.</p>
-                    </div>
-
+                <div class="explainer" style="--splash-delay: 6">
+                    <p>It is an independent root PKI provider for private environments.</p>
                 </div>
 
             </div>
+
         </div>
     </div>
 

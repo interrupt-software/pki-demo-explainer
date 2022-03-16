@@ -25,9 +25,14 @@
             --pretty-box-border: 10px 10px 0 0;
             --pretty-box-width: 300px;
 
+            /* Instruqt Window View at 1920 x 1080 viewport*/
+            --instruqt-view-width: 1470px;
+            --instruqt-view-height: 890px;
 }
 
 body {
+    /* background-image: url("/img/instruqt-background.png");
+    background-repeat: no-repeat; */
     margin: 0px;
     font-family: 'Roboto', sans-serif;
     text-rendering: optimizeSpeed;
@@ -50,56 +55,36 @@ a {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    height: calc(100vh - 96px);
-    width: calc(100vw - 192px);
-}
-
-.main-wrapper {
-    /* border-style: solid;
-    border-color: red; */
-
-    min-width: clamp(830px, 70vw, 100%);
+    height: var(--instruqt-view-height);
+    width: var(--instruqt-view-width);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .main-content {
-    /* border-style: solid;
-    border-color: red; */
-    min-height: calc(100vh - 96px * 4);
-    max-height: calc(100vh - 96px * 2);
+    border-style: solid;
+    border-color: var(--gray-5);
+    background-color: var(--gray-6);
+    /* min-height: calc(100vh - 96px * 4);
+    max-height: calc(100vh - 96px * 2); */
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-.entity-area {
-    /* border-style: solid;
-    border-color: red; */
-
-    height: 90%;
-    width: var(--pretty-box-width);
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .explainer-wrapper {
     /* border-style: solid;
-    border-color: red; 
-    background-color: var(--gray-5);*/
-    width: calc(50vw - 96px);
-    max-width: 50vw;
+    border-color: red;  */
+    width: calc(var(--instruqt-view-width)/2)
 }
 
 .explainer-wrapper .explainer-image {
     /* border-style: solid;
     border-color: red; */
-    padding: 10px;
-    max-height: 500px;
-    width: calc(50vw - 96px - 20px);
-    max-width: calc(50vw - 96px - 20px);
+    padding: 20px;
+    max-width: calc(var(--instruqt-view-width)/2 - 40px);
 }
 
 .explainer-wrapper .tooltiptext {
