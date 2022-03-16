@@ -1,0 +1,127 @@
+:root {
+            /* Grays */
+            --white: #ffffff;
+            --black: #000000;
+            --gray-6: #f2f2f3;
+            --gray-5: #dbdbdc;
+            --gray-4: #bfbfc0;
+            --gray-3: #727274;
+            --gray-2: #343536;
+            --gray-1: #1d1e1f;
+
+            /* HashiCorp brand color */
+            --brand: #2e71e5;
+            /* CTA-Blue */
+            --brand-secondary: #f2f2f3;
+            --brand-logomark: #000000;
+            --brand-accent: #f2f2f3;
+            --brand-link: #2264d6;
+            --brand-link-on-dark: #4294ff;
+            --brand-text-on-primary: var(--white);
+            --brand-gradient: linear-gradient(50.7deg, #63d0ff 0%, #844fba 100%);
+
+            /* Custom box styling */
+
+            --pretty-box-border: 10px 10px 0 0;
+            --pretty-box-width: 300px;
+
+}
+
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    text-rendering: optimizeSpeed;
+    text-rendering: optimizeSpeed;
+    line-height: 1.4;
+    overflow: hidden;
+}
+
+.main-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: calc(100vh - 96px);
+    width: calc(100vw - 192px);
+}
+
+.slide-title {
+    height: 90px;
+    font-weight: bold;
+    font-size: 72px;
+}
+
+.slide-subtitle {
+    height: 72px;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.slide-spacer-vertical-1 {
+    height: 18px;
+}
+
+.slide-spacer-vertical-2 {
+    height: 64px;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+}
+
+.section-content {
+    width: calc(100vw/2 - 96px);
+    min-width: 480px;
+    min-height: 480px;
+}
+
+.section-subtitle {
+    height: 72px;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.section-text {
+    padding-right: 10px;
+    font-size: 28px;
+}
+
+.section-image {
+    width: calc(100vw/2 - 96px);
+    min-width: 480px;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-image img {
+    height: 300px;
+}
+
+.explainer {
+    opacity: 0;
+    animation: fadeInUp 10s ease forwards;
+    animation-delay: calc(var(--splash-delay) * 500ms);
+    border-bottom: solid var(--gray-5);
+}
+
+.explainer:last-child {
+    border-bottom: none;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30%);
+    }
+
+    30%,
+    50%,
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
