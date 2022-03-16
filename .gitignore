@@ -37,6 +37,9 @@ vault-unseal.json
 *.log
 
 # Remove Python Egg package as #
-# it is built during bootstrap #
+# it is built during bootstrap.#
+# Also ignore cache and venv   #
 ################################
 app.egg-info
+__pycache__
+venv
