@@ -35,3 +35,8 @@ vault-unseal.json
 # Log files are not required.  #
 ################################
 *.log
+
+# Remove Python Egg package as #
+# it is built during bootstrap #
+################################
+app.egg-info
