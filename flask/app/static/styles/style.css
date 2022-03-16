@@ -97,6 +97,7 @@ a {
     /* border-style: solid;
     border-color: red; */
     padding: 10px;
+    max-height: 500px;
     width: calc(50vw - 96px - 20px);
     max-width: calc(50vw - 96px - 20px);
 }
