@@ -52,24 +52,22 @@
                         </div>
                     </div>
 
-                    <div class="explainer commentary" style="--splash-delay: 3;">
+                    <div class="explainer explainer-no-border" style="--splash-delay: 3;">
                         <p>Please use `CMD + C` or `CTRL + C` to copy your root token.
-                            The Clipboard API has been blocked because of a permissions policy applied to the
-                            current document.
+                        </p>
+
+                        <p>The Clipboard API is blocked because of a permissions policy applied to the current
+                            document.
                         </p>
                     </div>
-
                 </div>
+
             </div>
+
         </div>
         <div class="last">
             <a href="{{ url_for('two') }}">
                 <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
-            </a>
-        </div>
-        <div class="next">
-            <a href="{{ url_for('four') }}">
-                <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
             </a>
         </div>
 </body>

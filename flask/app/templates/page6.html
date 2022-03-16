@@ -21,115 +21,47 @@
     <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
-    <script src="{{ url_for('static', filename='js/vault-ssl-ca-data.js') }}"></script>
 
-    <style>
-        #tale-teller-1,
-        #tale-teller-2 {
-            min-width: 500px;
-            width: 500px;
-        }
-
-        .explainer-wrapper-left {
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-            padding: 50px;
-        }
-
-        .explainer-wrapper-right {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            min-height: 600px;
-            height: 600px;
-            padding: 50px;
-        }
-
-        .explainer table {
-            border-style: solid;
-            border-color: #B3B3B3;
-            border-radius: 5px;
-            border-width: 0.25px;
-            border-collapse: collapse;
-            box-shadow: 3px 3px 5px -5px hsl(259, 0%, 25%);
-        }
-
-        .explainer table tbody tr th {
-            background-color: hsl(199, 50%, 95%);
-        }
-
-        .explainer table tbody tr td {
-            background-color: #FBFAF5;
-        }
-
-        .explainer table tbody tr td,
-        .explainer table tbody tr th {
-            min-width: 120px;
-            height: 20px;
-            padding: 10px 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            text-align: left;
-            font-size: small;
-            font-weight: 100;
-        }
-
-        .explainer table tbody tr td:first-child,
-        .explainer table tbody tr th:first-child {
-            text-align: right;
-        }
-    </style>
 </head>
 
 <body>
     <div class="main-container">
-        <div class="main-wrapper" style="align-items: flex-start;">
-            <div class="main-content" style="align-items: flex-start;">
+        <div class="main-wrapper">
+            <div class="main-content">
 
                 <div class="explainer-wrapper">
+                    <img class="explainer-image"
+                        src="{{ url_for('static', filename='img/workflow-create-intermediate.svg') }}"
+                        alt="PKI Topology">
+                    <span class="tooltiptext" id="tooltiptext">Workflow to setup intermediate root CA</span>
+                </div>
+            </div>
 
-                    <div class="explainer" style="--splash-delay: 1">
-                        <h1>The PKI Secrets Engine</h1>
-                        <p>It is a secrets engine for generating and managing X.509 certificates.
-                        </p>
-                    </div>
+            <div class="explainer-wrapper">
 
-                    <div class="explainer" style="--splash-delay: 3">
-                        <p>It is a complementary solution to your external PKI providers to support an automated and
-                            dynamic generation of your PKI certificates.</p>
-                    </div>
-
-                    <div class="explainer" style="--splash-delay: 6">
-                        <p>It is an independent root PKI provider for private environments.</p>
-                    </div>
-
+                <div class="explainer" style="--splash-delay: 1">
+                    <h1>Create a PKI intermediate CA</h1>
+                    <p>It is a secrets engine for generating and managing X.509 certificates.
+                    </p>
                 </div>
 
-                <div class="explainer-wrapper">
-                    <div class="explainer explainer-no-border" id="tale-teller-1" style="--splash-delay: 1;">
-                    </div>
+                <div class="explainer" style="--splash-delay: 2">
+                    <p>It is a complementary solution to your external PKI providers to support an automated and
+                        dynamic generation of your PKI certificates.</p>
+                </div>
+
+                <div class="explainer" style="--splash-delay: 3">
+                    <p>It is an independent root PKI provider for private environments.</p>
                 </div>
 
             </div>
+
         </div>
-        <div class="last">
-            <a href="{{ url_for('five') }}">
-                <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
-            </a>
-        </div>
-        <div class="next">
-            <a href="{{ url_for('seven') }}">
-                <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
-            </a>
-        </div>
+    </div>
+    </div>
+
 </body>
 
 </html>

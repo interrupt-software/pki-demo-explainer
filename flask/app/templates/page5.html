@@ -31,45 +31,38 @@
         <div class="main-wrapper">
             <div class="main-content">
 
-                <div class="box-wrapper" data-clickable="true">
-                    <div class="box" data-active="false">
-                        <img src="{{ url_for('static', filename='img/workflow-create-ca.svg') }}" alt="PKI Topology">
-                        <span class="tooltiptext" id="tooltiptext">Workflow to setup root CA</span>
-                    </div>
-                </div>
-
-
                 <div class="explainer-wrapper">
+                    <img class="explainer-image" src="{{ url_for('static', filename='img/workflow-create-ca.svg') }}"
+                        alt="PKI Topology">
+                    <span class="tooltiptext" id="tooltiptext">Workflow to setup root CA</span>
+                </div>
+            </div>
 
-                    <div class="explainer" style="--splash-delay: 1">
-                        <h1>The PKI Secrets Engine</h1>
-                        <p>It is a secrets engine for generating and managing X.509 certificates.
-                        </p>
-                    </div>
 
-                    <div class="explainer" style="--splash-delay: 3">
-                        <p>It is a complementary solution to your external PKI providers to support an automated and
-                            dynamic generation of your PKI certificates.</p>
-                    </div>
+            <div class="explainer-wrapper">
 
-                    <div class="explainer" style="--splash-delay: 6">
-                        <p>It is an independent root PKI provider for private environments.</p>
-                    </div>
-
+                <div class="explainer" style="--splash-delay: 1">
+                    <h1>Configure a PKI Root CA</h1>
+                    <p>It is an independent root PKI provider for private environments.</p>
                 </div>
 
+                <div class="explainer" style="--splash-delay: 2">
+                    <p>
+                    </p>
+                </div>
+
+                <div class="explainer" style="--splash-delay: 3">
+                    <p></p>
+                </div>
             </div>
+
         </div>
+    </div>
     </div>
 
     <div class="last">
         <a href="{{ url_for('four') }}">
             <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
-        </a>
-    </div>
-    <div class="next">
-        <a href="{{ url_for('six') }}">
-            <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
         </a>
     </div>
 

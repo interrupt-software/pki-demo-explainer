@@ -31,11 +31,10 @@
         <div class="main-wrapper">
             <div class="main-content">
 
-                <div class="box-wrapper" data-clickable="true">
-                    <div class="box" data-active="false">
-                        <img src="{{ url_for('static', filename='img/pki_topology.svg') }}" alt="PKI Topology">
-                        <span class="tooltiptext" id="tooltiptext">PKI Main Entities</span>
-                    </div>
+                <div class="explainer-wrapper" style="--splash-delay: 1">
+                    <img class="explainer-image" src="{{ url_for('static', filename='img/pki_topology.svg') }}"
+                        alt="PKI Topology">
+                    <span class="tooltiptext" id="tooltiptext">PKI Main Entities</span>
                 </div>
 
 
@@ -62,11 +61,6 @@
         </div>
     </div>
 
-    <div class="last">
-        <a href="{{ url_for('three') }}">
-            <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
-        </a>
-    </div>
     <div class="next">
         <a href="{{ url_for('five') }}">
             <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">

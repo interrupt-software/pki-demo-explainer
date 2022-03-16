@@ -42,32 +42,33 @@ a {
   
 
 .main-container {
-    /* border-style: solid;
+    /* background-color: var(--gray-6);
+    border-style: solid;
     border-color: red; */
-
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: calc(100vh - 96px);
+    width: calc(100vw - 192px);
 }
+
 .main-wrapper {
     /* border-style: solid;
     border-color: red; */
 
     min-width: clamp(830px, 70vw, 100%);
-    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .main-content {
     /* border-style: solid;
     border-color: red; */
-
-    height: 100%;
-    width: 100%;
+    min-height: calc(100vh - 96px * 4);
+    max-height: calc(100vh - 96px * 2);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -83,123 +84,24 @@ a {
     align-items: center;
     justify-content: center;
 }
-.pretty-box {
+
+.explainer-wrapper {
+    /* border-style: solid;
+    border-color: red; 
+    background-color: var(--gray-5);*/
+    width: calc(50vw - 96px);
+    max-width: 50vw;
+}
+
+.explainer-wrapper .explainer-image {
     /* border-style: solid;
     border-color: red; */
-  
-    background-color: var(--gray-2);
-    border-radius: var(--pretty-box-border);
-    max-height: 50px;
-    height: 50px;
-    width: 80%;
-    transition: 
-      height 250ms ease-in-out,
-      max-height 250ms ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
-    color: var(--gray-6)
-  }
-.pretty-box:hover {
-    background-color: var(--gray-1);
-}
-.box-label {
-    position: relative;
-    width: 80%;
-    z-index: 100;
-    margin: 10px;
-    height: 50px;
-    text-align: center;
-}
-.inner-box {
-    visibility:hidden;
-    opacity:0;
-
-    position: relative;
-    background-color: var(--gray-6);
-    width: 80%;
-    z-index: 200;
-    margin: 10px;
-    height: 50px;
-    color: var(--gray-2);
-}
-.inner-box:hover {
-    background-color: var(--gray-5);
-}
-.pretty-box[data-expanded="true"] > .inner-box {
-    transition:
-      visibility 500ms linear 250ms,
-      opacity 500ms linear 250ms;
-    visibility:visible;
-    opacity:1;
-}
-.pretty-box[data-expanded="false"] > .inner-box {
-    visibility:hidden;
-    opacity:0;
-}
-.box-wrapper {
-    border-radius: 5px 5px 0px 0px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    min-width: 50%;
-    width: 400px;
-
-    padding: 50px;
-}
-
-.box-wrapper h1 {
-    margin: 0;
-    font-size: 24px;
-    height: 50px;
-    width: 100%;
-    text-align: center;
-}
-
-.box-wrapper ul {
-    list-style-type: none;
-    margin: 0;
     padding: 10px;
-    margin-top: 20px;
+    width: calc(50vw - 96px - 20px);
+    max-width: calc(50vw - 96px - 20px);
 }
 
-.box-wrapper li {
-    border: solid var(--gray-4);
-    border-radius: 5px 5px 0px 0px;
-    list-style: none;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-}
-
-.box-wrapper li:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-.box {
-    cursor: pointer;
-    /* border: solid var(--gray-4); */
-    text-transform: uppercase;
-    width: 100%;
-    /* height: 100%; */
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.box img {
-    width: 100%;
-    transform: scale(1);
-    transition: transform 500ms;
-}
-
-.box img:hover {
-    transform: scale(1.2);
-    transition: transform 250ms;
-}
-
-.box .tooltiptext {
+.explainer-wrapper .tooltiptext {
     color: var(--gray-3);
     font-size: 12px;
     visibility: hidden;
@@ -219,23 +121,16 @@ a {
         opacity 500ms linear 500ms ease-in;
 }
 
-.box:hover .tooltiptext {
+.explainer-wrapper:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
 
-.explainer-wrapper {
-    min-width: 500px;
-    max-width: 600px;
-    width: 500px; 
-    padding: 50px;
-}
-
 .explainer {
-    width: 400px;
+    /* width: 400px; */
     opacity: 0;
     animation: fadeInUp 3s ease forwards;
-    animation-delay: calc(var(--splash-delay) * 200ms);
+    animation-delay: calc(var(--splash-delay) * 100ms);
     border-bottom: solid var(--gray-5);
 }
 
@@ -285,6 +180,7 @@ a {
     bottom: 100px;
     left: 100px;
 }
+
 .tale-teller {
     position: relative;
     display: flex;
@@ -317,7 +213,7 @@ a {
     height: 30px;
 }
 
-.copy-icon>img {
+.copy-icon img {
     width: 30px;
     height: 30px;
 }
