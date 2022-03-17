@@ -21,150 +21,51 @@
     <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
-    <script src="{{ url_for('static', filename='js/vault-ssl-server-run.js') }}"></script>
 
-    <style>
-        .server-data {
-            border-radius: 5px;
-            background-color: var(--gray-1);
-            color: white;
-            font: 14px Inconsolata, monospace;
-            line-height: 1.6;
-            width: 600px;
-            height: 400px;
-            padding: 20px;
-            pointer-events: none;
-            position: relative;
-            transition: height 1s ease-in-out;
-        }
-
-        .server-data .top {
-            background: #E8E6E8;
-            color: black;
-            padding: 5px;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .server-data .btns {
-            position: absolute;
-            top: 7px;
-            left: 5px;
-        }
-
-        .server-data .circle {
-            width: 12px;
-            height: 12px;
-            display: inline-block;
-            border-radius: 15px;
-            margin-left: 2px;
-            border-width: 1px;
-            border-style: solid;
-        }
-
-        .title {
-            text-align: center;
-        }
-
-        .red {
-            background: #EC6A5F;
-            border-color: #D04E42;
-        }
-
-        .green {
-            background: #64CC57;
-            border-color: #4EA73B;
-        }
-
-        .yellow {
-            background: #F5C04F;
-            border-color: #D6A13D;
-        }
-
-        .clear {
-            clear: both;
-        }
-
-        .server-data .body {
-            background: black;
-            color: #7AFB4C;
-            padding: 8px;
-            overflow: auto;
-        }
-
-        .space {
-            margin: 25px;
-        }
-
-        .shadow {
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, .4)
-        }
-
-        .fake-buttom {
-            background-color: #623CE4;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
     <div class="main-container">
-        <div class="main-wrapper">
-            <div class="main-content">
+        <div class="main-content">
 
-                <div class="explainer-wrapper">
+            <div class="explainer-wrapper">
+                <img class="explainer-image"
+                    src="{{ url_for('static', filename='img/workflow-generate-certificates.svg') }}" alt="PKI Topology">
+                <span class="tooltiptext" id="tooltiptext">Workflow to setup root CA</span>
+            </div>
 
-                    <div class="explainer" style="--splash-delay: 1">
-                        <h1>The PKI Secrets Engine</h1>
-                        <p>It is a secrets engine for generating and managing X.509 certificates.
-                        </p>
-                    </div>
+            <div class="explainer-wrapper">
 
-                    <div class="explainer" style="--splash-delay: 2">
-                        <p>It is a complementary solution to your external PKI providers to support an automated and
-                            dynamic generation of your PKI certificates.</p>
-                    </div>
-
-                    <div class="explainer" style="--splash-delay: 3">
-                        <div class="fake-buttom" id="fake-buttom" data-clicked="false">SEND</div>
-                    </div>
-
+                <div class="explainer" style="--splash-delay: 1">
+                    <h1>Workflow to request certificates</h1>
+                    <p>
+                        A trusted entity receives AppRole credentials for the PKI Broker role.
+                    </p>
                 </div>
 
+                <div class="explainer" style="--splash-delay: 2">
+                    <p>
+                        There are multiple steps to grant or renew the AppRole credentials to the
+                        trusted entity. The frequency to run the procedural steps is flexible and
+                        configurable.
+                    </p>
+                </div>
 
-                <div class="explainer-wrapper">
-                    <div class="server-data">
-                        <div class="btns">
-                            <span class="circle red"></span>
-                            <span class="circle yellow"></span>
-                            <span class="circle green"></span>
-                        </div>
-                        <div id="server-data"></div>
-                    </div>
+                <div class="explainer" style="--splash-delay: 3">
+                    <p>
+                        Once the trusted entity can authenticate, it is ready to request certificates
+                        on behalf of a PKI consumer in a leaf domain.
+                    </p>
                 </div>
             </div>
 
         </div>
     </div>
-    </div>
 
-    <div class="last">
-        <a href="{{ url_for('ten') }}">
-            <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
-        </a>
-    </div>
     <div class="next">
-        <a href="{{ url_for('eleven') }}">
+        <a href="{{ url_for('ten') }}">
             <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
         </a>
     </div>
