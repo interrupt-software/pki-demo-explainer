@@ -39,17 +39,25 @@
             <div class="explainer-wrapper">
 
                 <div class="explainer" style="--splash-delay: 1">
-                    <h1>Configure a PKI Root CA</h1>
-                    <p>It is an independent root PKI provider for private environments.</p>
+                    <h1>Generate an intermediate CA</h1>
+                    <p>
+                        This is the most common scenario for a PKI scenario because
+                        an intermediate CA is used to interface with a Root CA.
+                    </p>
                 </div>
 
                 <div class="explainer" style="--splash-delay: 2">
-                    <p>This an explainer
+                    <p>
+                        The intermediate CA maintains a signed Certificate Signing Request,
+                        which is signed by the Root CA. This provides the ability to sign
+                        leaf certificates on behalf of the Root CA.
                     </p>
                 </div>
 
                 <div class="explainer" style="--splash-delay: 3">
-                    <p>This is an explainer
+                    <p>
+                        This approach reduced the time to request and issue certificates,
+                        and it enables rotation, revocation and removal.
                     </p>
                 </div>
             </div>
