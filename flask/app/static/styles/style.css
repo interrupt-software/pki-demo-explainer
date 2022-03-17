@@ -87,11 +87,11 @@ a {
     min-height: 300px;
     max-width: calc(var(--instruqt-view-width)/2 - 40px);
     max-height: calc(var(--instruqt-view-height) - 40px);
-    transition: transform .5s ease;
+    transition: transform 500ms ease-in;
 }
 
 .explainer-wrapper .explainer-image:hover {
-    z-index: 900;
+    z-index: 800;
     background-color: var(--white);
     background-image: radial-gradient(var(--gray-6), var(--white), var(--white));
     transform: scale(1.5);
@@ -118,6 +118,7 @@ a {
 }
 
 .explainer-wrapper:hover .tooltiptext {
+    z-index: 900;
     visibility: visible;
     opacity: 1;
 }
