@@ -6,26 +6,29 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 
-www_home=os.environ.get('WWW_HOME', '/Users/gilberto/hashicorp/FAST/field-demo-explainers/pki-demo-explainer/flask')
 
-logging.basicConfig(filename=www_home+'/app/static/logs/server.log', format='%(asctime)s %(name)s %(levelname)s: %(message)s ', level=logging.DEBUG)
+def run():
 
-# Bind the socket to the port
-server_address = ('0.0.0.0', 10443)
-server_cert = 'server.crt'
-server_key = 'server.key'
-client_certs = 'ca_bundle.crt'
+    www_home=os.environ.get('WWW_HOME', '/Users/gilberto/hashicorp/FAST/field-demo-explainers/pki-demo-explainer/flask')
 
-context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-context.verify_mode = ssl.CERT_REQUIRED
-context.load_cert_chain(certfile=server_cert, keyfile=server_key)
-context.load_verify_locations(cafile=client_certs)
+    logging.basicConfig(filename=www_home+'/app/static/logs/server.log', format='%(asctime)s %(name)s %(levelname)s: %(message)s ', level=logging.DEBUG)
 
-bindsocket = socket.socket()
-bindsocket.bind(server_address)
-bindsocket.listen(5)
+    # Bind the socket to the port
+    server_address = ('0.0.0.0', 10443)
+    server_cert = 'server.crt'
+    server_key = 'server.key'
+    client_certs = 'ca_bundle.crt'
 
-def run_ssl_server():
+    context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    context.verify_mode = ssl.CERT_REQUIRED
+    context.load_cert_chain(certfile=server_cert, keyfile=server_key)
+    context.load_verify_locations(cafile=client_certs)
+
+    bindsocket = socket.socket()
+    bindsocket.bind(server_address)
+    bindsocket.listen(5)
+
+
     while True:
       logging.info("Waiting for client")
       newsocket, fromaddr = bindsocket.accept()
@@ -57,4 +60,4 @@ def run_ssl_server():
         conn.close()
 
 if __name__ == "__main__":
-    run_ssl_server()
+    run()

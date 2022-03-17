@@ -4,9 +4,12 @@ from flask import send_from_directory
 from flask import stream_with_context
 import os
 from time import sleep
+from multiprocessing import Process
 
 app = Flask(__name__, static_url_path='')
+
 import ssl_client
+# import ssl_server
 
 @app.route('/')
 def home():
@@ -67,6 +70,26 @@ def get_ssl_domain_data():
 @app.route('/send_ssl_message')
 def send_ssl_message():
     return ssl_client.send_ssl_message(b"This is a test.")
+
+# Need to work on async startup of the SSL Server
+# TO DO: 
+# 1- Build Async module library
+# 2- Remove global logging as to not pollute ssl logs
+# 
+# ssl_server_running = False
+
+# @app.route('/start_ssl_server')
+# def start_ssl_server():
+#     global ssl_server_running
+
+#     my_ssl_server = Process (
+#       target=ssl_server.run(),
+#       daemon=True
+#     )
+
+#     if (ssl_server_running == False):
+#         my_ssl_server.start()
+#     return 
 
 @app.route('/get_ssl_server_data')
 def get_ssl_server_data():

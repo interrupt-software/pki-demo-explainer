@@ -33,7 +33,7 @@ def send_ssl_message(message):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         conn = context.wrap_socket(s, server_side=False, server_hostname=server_sni_hostname)
         conn.connect(server_address)
-    except (SSLError) as e:
+    except (ConnectionError) as e:
         print("SSL exception. {}".format(e.args[-1]))
     finally:
         result = json.dumps(conn.getpeercert(), indent=2, sort_keys=True)

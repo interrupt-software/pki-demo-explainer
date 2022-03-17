@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vault PKI Primer</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static',filename='fav-icon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static',filename='fav-icon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static',filename='fav-icon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static',filename='fav-icon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='fav-icon/safari-pinned-tab.svg') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='js/vault-ssl-ca-data.js') }}"></script>
+
+    <style>
+        #tale-teller-1,
+        #tale-teller-2 {
+            min-width: 500px;
+            width: 500px;
+        }
+
+        .explainer-wrapper-left {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            padding: 50px;
+        }
+
+        .explainer-wrapper-right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-height: 600px;
+            height: 600px;
+            padding: 50px;
+        }
+
+        .explainer table {
+            border-style: solid;
+            border-color: #B3B3B3;
+            border-radius: 5px;
+            border-width: 0.25px;
+            border-collapse: collapse;
+            box-shadow: 3px 3px 5px -5px hsl(259, 0%, 25%);
+        }
+
+        .explainer table tbody tr th {
+            background-color: hsl(199, 50%, 95%);
+        }
+
+        .explainer table tbody tr td {
+            background-color: #FBFAF5;
+        }
+
+        .explainer table tbody tr td,
+        .explainer table tbody tr th {
+            min-width: 120px;
+            height: 20px;
+            padding: 10px 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            text-align: left;
+            font-size: small;
+            font-weight: 100;
+        }
+
+        .explainer table tbody tr td:first-child,
+        .explainer table tbody tr th:first-child {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-wrapper" style="align-items: flex-start;">
+            <div class="main-content" style="align-items: flex-start;">
+
+                <div class="explainer-wrapper">
+
+                    <div class="explainer" style="--splash-delay: 1">
+                        <h1>The PKI Secrets Engine</h1>
+                        <p>It is a secrets engine for generating and managing X.509 certificates.
+                        </p>
+                    </div>
+
+                    <div class="explainer" style="--splash-delay: 3">
+                        <p>It is a complementary solution to your external PKI providers to support an automated and
+                            dynamic generation of your PKI certificates.</p>
+                    </div>
+
+                    <div class="explainer" style="--splash-delay: 6">
+                        <p>It is an independent root PKI provider for private environments.</p>
+                    </div>
+
+                </div>
+
+                <div class="explainer-wrapper">
+                    <div class="explainer explainer-no-border" id="tale-teller-3" style="--splash-delay: 1;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="last">
+            <a href="{{ url_for('eight') }}">
+                <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
+            </a>
+        </div>
+        <div class="next">
+            <a href="{{ url_for('ten') }}">
+                <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
+            </a>
+        </div>
+</body>
+
+</html>
