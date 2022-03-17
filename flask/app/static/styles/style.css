@@ -26,7 +26,7 @@
             --pretty-box-width: 300px;
 
             /* Instruqt Window View at 1920 x 1080 viewport*/
-            --instruqt-view-width: 1230px;
+            --instruqt-view-width: 1200px;
             --instruqt-view-height: 860px;
 }
 
@@ -94,9 +94,8 @@ a {
     z-index: 800;
     background-color: var(--white);
     background-image: radial-gradient(var(--gray-6), var(--white), var(--white));
-    transform: scale(1.5);
+    transform: scale(1.25);
 }
-
 
 .explainer-wrapper .tooltiptext {
     color: var(--gray-3);
@@ -117,7 +116,7 @@ a {
         opacity 500ms linear 500ms ease-in;
 }
 
-.explainer-wrapper:hover .tooltiptext {
+.explainer-wrapper .explainer-image:hover .tooltiptext {
     z-index: 900;
     visibility: visible;
     opacity: 1;
