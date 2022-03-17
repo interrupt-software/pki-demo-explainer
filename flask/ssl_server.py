@@ -6,7 +6,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 
-www_home=os.environ["WWW_HOME"]
+www_home=os.environ.get('WWW_HOME', '/Users/gilberto/hashicorp/FAST/field-demo-explainers/pki-demo-explainer/flask')
 
 logging.basicConfig(filename=www_home+'/app/static/logs/server.log', format='%(asctime)s %(name)s %(levelname)s: %(message)s ', level=logging.DEBUG)
 
@@ -25,14 +25,15 @@ bindsocket = socket.socket()
 bindsocket.bind(server_address)
 bindsocket.listen(5)
 
-while True:
-    logging.info("Waiting for client")
-    newsocket, fromaddr = bindsocket.accept()
-    logging.info("Client connected: {}:{}".format(fromaddr[0], fromaddr[1]))
-    conn = context.wrap_socket(newsocket, server_side=True)
-    logging.info("SSL established. Peer: {}".format(conn.getpeercert()))
-    buf = b''  # Buffer to hold received client data
-    try:
+def run_ssl_server():
+    while True:
+      logging.info("Waiting for client")
+      newsocket, fromaddr = bindsocket.accept()
+      logging.info("Client connected: {}:{}".format(fromaddr[0], fromaddr[1]))
+      conn = context.wrap_socket(newsocket, server_side=True)
+      logging.info("SSL established. Peer: {}".format(conn.getpeercert()))
+      buf = b''  # Buffer to hold received client data
+      try:
         while True:
             data = ""
             try:
@@ -47,10 +48,13 @@ while True:
                 # No more data from client. Show buffer and close connection.
                 logging.info("Data received: %s", buf)
                 break
-    finally:
+      finally:
         logging.info("Closing connection")
         try:
             conn.shutdown(socket.SHUT_RDWR)
         except OSError:
             logging.warning("OSError: Connection reset by peer. No connection to shutdown.")
         conn.close()
+
+if __name__ == "__main__":
+    run_ssl_server()
