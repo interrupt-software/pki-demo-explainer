@@ -84,6 +84,19 @@
             background-color: hsl(199, 50%, 95%);
         }
 
+        .grid-cell[data-populated="true"]:hover {
+            border-style: solid;
+            border-color: #B3B3B3;
+            border-radius: 5px;
+            border-width: 0.25px;
+            box-shadow: 3px 3px 5px -5px hsl(259, 0%, 25%);
+            width: 230px;
+            padding: 20px;
+            background-color: rgb(255, 234, 229);
+        }
+
+
+
         .grid-cell[data-vline="upper"] {
             border-left-style: solid;
             border-color: #B3B3B3;
@@ -168,47 +181,46 @@
 
 <body>
     <div class="main-container">
-        <div class="main-wrapper">
-            <div class="main-content">
+        <div class="main-content">
 
-                <div class="grid-container" id="grid-container">
+            <div class="grid-container" id="grid-container">
 
-                    <div class="grid-cell" id="grid-cell-1" data-populated="true">
-                        <div class="grid-title">ROOT CA</div>
-                        <div class="grid-private-key">Private Key</div>
-                        <div class="grid-public-key" id="root-ca-serial-key-1">
-                            56-87-81-c1-6b-fc-07-47-e1-d9-52-c7-13-de-7e-54-e1-ad-07-d7
-                        </div>
+                <div class="grid-cell" id="grid-cell-1" data-populated="true">
+                    <div class="grid-title">ROOT CA</div>
+                    <div class="grid-private-key">Private Key</div>
+                    <div class="grid-public-key" id="root-ca-serial-key-1">
+                        56-87-81-c1-6b-fc-07-47-e1-d9-52-c7-13-de-7e-54-e1-ad-07-d7
                     </div>
-                    <div class="grid-cell" id="grid-cell-2" data-hline="flat"></div>
-                    <div class="grid-cell" id="grid-cell-3" data-vline="upper-3" data-hline="left"></div>
-                    <div class="grid-cell" id="grid-cell-4"></div>
-                    <div class="grid-cell" id="grid-cell-5" data-vline="upper" data-hline="right"></div>
-                    <div class="grid-cell" id="grid-cell-6" data-populated="true">
-                        <div class="grid-title">Intermediate</div>
-                        <div class="grid-private-key" id="root-ca-serial-key-2">
-                            56-87-81-c1-6b-fc-07-47-e1-d9-52-c7-13-de-7e-54-e1-ad-07-d7
-                        </div>
-                        <div class="grid-public-key" id="intermediate-serial-key-1">
-                            75-f8-87-b6-f0-b6-b5-6f-e3-c4-21-16-93-1e-ad-44-c9-8d-9e-ed
-                        </div>
-                    </div>
-                    <div class="grid-cell" id="grid-cell-7" data-vline="upper-2" data-hline="left-2">
-                        <div class="grid-hline-fixed"></div>
-                    </div>
-                    <div class="grid-cell" id="grid-cell-8" data-vline="upper-3" data-hline="left"></div>
-                    <div class="grid-cell" id="grid-cell-9"></div>
-                    <div class="grid-cell" id="grid-cell-10" data-vline="upper" data-hline="right"></div>
-                    <div class="grid-cell" id="grid-cell-11" data-populated="true">
-                        <div class="grid-title">Leaf Domain</div>
-                        <div class="grid-private-key" id="intermediate-serial-key-2">
-                            75-f8-87-b6-f0-b6-b5-6f-e3-c4-21-16-93-1e-ad-44-c9-8d-9e-ed
-                        </div>
-                        <div class="grid-public-key" id="leaf-serial-key">Public Key</div>
-                    </div>
-                    <div class="grid-cell" id="grid-cell-12" data-vline="upper-2" data-hline="left-2"></div>
-
                 </div>
+                <div class="grid-cell" id="grid-cell-2" data-hline="flat"></div>
+                <div class="grid-cell" id="grid-cell-3" data-vline="upper-3" data-hline="left"></div>
+                <div class="grid-cell" id="grid-cell-4">
+                </div>
+                <div class="grid-cell" id="grid-cell-5" data-vline="upper" data-hline="right"></div>
+                <div class="grid-cell" id="grid-cell-6" data-populated="true">
+                    <div class="grid-title">Intermediate</div>
+                    <div class="grid-private-key" id="root-ca-serial-key-2">
+                        56-87-81-c1-6b-fc-07-47-e1-d9-52-c7-13-de-7e-54-e1-ad-07-d7
+                    </div>
+                    <div class="grid-public-key" id="intermediate-serial-key-1">
+                        75-f8-87-b6-f0-b6-b5-6f-e3-c4-21-16-93-1e-ad-44-c9-8d-9e-ed
+                    </div>
+                </div>
+                <div class="grid-cell" id="grid-cell-7" data-vline="upper-2" data-hline="left-2">
+                    <div class="grid-hline-fixed"></div>
+                </div>
+                <div class="grid-cell" id="grid-cell-8" data-vline="upper-3" data-hline="left"></div>
+                <div class="grid-cell" id="grid-cell-9"></div>
+                <div class="grid-cell" id="grid-cell-10" data-vline="upper" data-hline="right"></div>
+                <div class="grid-cell" id="grid-cell-11" data-populated="true">
+                    <div class="grid-title">Leaf Domain</div>
+                    <div class="grid-private-key" id="intermediate-serial-key-2">
+                        75-f8-87-b6-f0-b6-b5-6f-e3-c4-21-16-93-1e-ad-44-c9-8d-9e-ed
+                    </div>
+                    <div class="grid-public-key" id="leaf-serial-key">Public Key</div>
+                </div>
+                <div class="grid-cell" id="grid-cell-12" data-vline="upper-2" data-hline="left-2"></div>
+
             </div>
         </div>
     </div>

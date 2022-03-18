@@ -92,7 +92,7 @@ a {
 
 .explainer-wrapper .explainer-image:hover {
     z-index: 800;
-    transform: scale(1.25);
+    transform: scale(1.15);
 }
 
 .explainer-wrapper .tooltiptext {
