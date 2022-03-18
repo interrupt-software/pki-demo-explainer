@@ -44,4 +44,9 @@ window.onload = function () {
     console.log("Error Reading data " + err);
   });
 
+  root_public_key_1.addEventListener('click', () => {
+    window.open('http://127.0.0.1:8200/ui/vault/secrets/hashicat-ca-root/list?tab=certs', '_blank');
+  })
+
+
 }
