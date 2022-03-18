@@ -95,14 +95,13 @@
             background-color: rgb(255, 234, 229);
         }
 
-
-
         .grid-cell[data-vline="upper"] {
             border-left-style: solid;
             border-color: #B3B3B3;
             left: 50%;
             height: 50%;
             position: relative;
+
         }
 
         .grid-cell[data-vline="upper-2"] {
@@ -110,6 +109,7 @@
             border-color: #B3B3B3;
             height: 80%;
             position: relative;
+
         }
 
         .grid-cell[data-vline="upper-3"] {
@@ -118,6 +118,7 @@
             height: 50%;
             top: 50%;
             position: relative;
+
         }
 
         .grid-cell[data-hline="right"] {
@@ -125,18 +126,21 @@
             width: 50%;
             border-bottom-left-radius: 5px;
             position: relative;
+
         }
 
         .grid-cell[data-hline="left"] {
             border-top-style: solid;
             border-top-right-radius: 5px;
             position: relative;
+
         }
 
         .grid-cell[data-hline="left-2"] {
             border-bottom-style: solid;
             border-bottom-right-radius: 5px;
             position: relative;
+
         }
 
         .grid-cell[data-hline="flat"] {
@@ -146,6 +150,7 @@
             height: 50%;
             top: 50%;
             position: relative;
+
         }
 
         .grid-hline-fixed {
@@ -155,6 +160,7 @@
             height: 62.5%;
             right: 0px;
             padding: 0;
+
         }
 
         .grid-title,
@@ -176,6 +182,13 @@
             font-weight: 300;
             background-color: #FBFAF5;
         }
+
+        .floating-message {
+            width: 20ch;
+            position: absolute;
+            top: 20%;
+            right: 20%;
+        }
     </style>
 </head>
 
@@ -192,11 +205,15 @@
                         56-87-81-c1-6b-fc-07-47-e1-d9-52-c7-13-de-7e-54-e1-ad-07-d7
                     </div>
                 </div>
-                <div class="grid-cell" id="grid-cell-2" data-hline="flat"></div>
+                <div class="grid-cell" id="grid-cell-2" data-hline="flat">
+                    verifies
+                </div>
                 <div class="grid-cell" id="grid-cell-3" data-vline="upper-3" data-hline="left"></div>
                 <div class="grid-cell" id="grid-cell-4">
                 </div>
-                <div class="grid-cell" id="grid-cell-5" data-vline="upper" data-hline="right"></div>
+                <div class="grid-cell" id="grid-cell-5" data-vline="upper" data-hline="right">
+                    signs
+                </div>
                 <div class="grid-cell" id="grid-cell-6" data-populated="true">
                     <div class="grid-title">Intermediate</div>
                     <div class="grid-private-key" id="root-ca-serial-key-2">
@@ -209,9 +226,13 @@
                 <div class="grid-cell" id="grid-cell-7" data-vline="upper-2" data-hline="left-2">
                     <div class="grid-hline-fixed"></div>
                 </div>
-                <div class="grid-cell" id="grid-cell-8" data-vline="upper-3" data-hline="left"></div>
+                <div class="grid-cell" id="grid-cell-8" data-vline="upper-3" data-hline="left">
+                    verifies
+                </div>
                 <div class="grid-cell" id="grid-cell-9"></div>
-                <div class="grid-cell" id="grid-cell-10" data-vline="upper" data-hline="right"></div>
+                <div class="grid-cell" id="grid-cell-10" data-vline="upper" data-hline="right">
+                    signs
+                </div>
                 <div class="grid-cell" id="grid-cell-11" data-populated="true">
                     <div class="grid-title">Leaf Domain</div>
                     <div class="grid-private-key" id="intermediate-serial-key-2">
@@ -223,6 +244,10 @@
 
             </div>
         </div>
+    </div>
+
+    <div class="floating-message">
+        <p>Log into Vault UI and cross-reference these certificates serial numbers</p>
     </div>
 
     <div class="last">
