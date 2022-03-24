@@ -33,8 +33,9 @@ window.onload = function () {
         } catch (e) {
           server_data.innerHTML += e + `<br>`;
         }
+      } else {
+        throw new Error(Date() + " " + response.statusText + ": Failed to send SSL encryted message.");
       }
-      throw new Error(Date() + " " + response.statusText + ": Failed to send SSL encryted message.");
     } catch (e) {
       server_data.innerHTML += e + `<br>`;
     }
@@ -43,25 +44,39 @@ window.onload = function () {
 
   fake_button.addEventListener('click', () => {
 
+    server_data.innerHTML = "";
+
     try {
-      sendSSLMessage();
+      sendSSLMessage().then(jsonbody => {
+
+        if (jsonbody) {
+
+          fetchSSLServerData().then(logdata => {
+            var serverdata = null;
+
+            try {
+              if (logdata) {
+                serverdata = logdata.replace(/(\d{1,4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}:\d{1,2},\d{1,3})/g, "<br/>$1");
+                server_data.innerHTML += serverdata;
+              }
+              else {
+                throw new Error(Date() + ": Unable to request SSL server data.");
+              }
+            }
+            catch (e) {
+              server_data.innerHTML += e + `<br>`;
+            }
+            if (serverdata) {
+              server_data.innerHTML = serverdata;
+            }
+          })
+        }
+
+      });
+
     } catch (e) {
-      server_data.innerHTML += e + `<br>`;
+      server_data.innerHTML = e + `<br>`;
     }
 
-    fetchSSLServerData().then(logdata => {
-      try {
-        if (logdata) {
-          const serverdata = logdata.replace(/(\d{1,4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}:\d{1,2},\d{1,3})/g, "<br/>$1");
-          server_data.innerHTML += serverdata;
-        }
-        else {
-          throw new Error(Date() + ": Unable to obtain SSL server data.");
-        }
-      }
-      catch (e) {
-        server_data.innerHTML += e + `<br>`;
-      }
-    })
   })
 }

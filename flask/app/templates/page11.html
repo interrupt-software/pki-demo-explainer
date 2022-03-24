@@ -114,6 +114,55 @@
             cursor: pointer;
             text-align: center;
         }
+
+        .checkout {
+            border-radius: 10px;
+            padding: 30px;
+            background-color: var(--brand-accent);
+            background-image: var(--brand-gradient);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+        }
+
+        .product-image {
+            border-radius: 7%;
+            width: 300px;
+            border: 5px solid var(--gray-5);
+
+        }
+
+        .product-id {
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 700;
+            padding-bottom: 20px;
+            color: var(--gray-6);
+        }
+
+        .billing-details table {
+            width: 250px;
+            height: 30px;
+            text-align: left;
+            font-size: 14px;
+            color: var(--gray-5);
+        }
+
+        .billing-details {
+            padding-bottom: 20px;
+        }
+
+        .billing-details table tr:last-child {
+            border-top: 2px solid var(--gray-6);
+            color: var(--gray-6);
+            font-weight: 700;
+        }
+
+        .billing-details table tr td:last-child {
+            text-align: right;
+        }
     </style>
 </head>
 
@@ -124,19 +173,32 @@
 
                 <div class="explainer-wrapper">
 
-                    <div class="explainer" style="--splash-delay: 1">
-                        <h1>The PKI Secrets Engine</h1>
-                        <p>It is a secrets engine for generating and managing X.509 certificates.
-                        </p>
-                    </div>
-
-                    <div class="explainer" style="--splash-delay: 2">
-                        <p>It is a complementary solution to your external PKI providers to support an automated and
-                            dynamic generation of your PKI certificates.</p>
-                    </div>
-
-                    <div class="explainer" style="--splash-delay: 3">
-                        <div class="fake-buttom" id="fake-buttom" data-clicked="false">SEND</div>
+                    <div class="checkout" id="checkout">
+                        <div class="produ">
+                            <img class="product-image" src="img/isometric-test-05.jpg" alt="NFT-98293ASBD879230-021">
+                        </div>
+                        <div class="product-id">NFT-98293ASBD879230-021</div>
+                        <div class="billing-details">
+                            <table>
+                                <tr>
+                                    <td>Sub-total</td>
+                                    <td>$ 4,907.41</td>
+                                </tr>
+                                <tr>
+                                    <td>Self-delivery (download)</td>
+                                    <td>$ 86.66</td>
+                                </tr>
+                                <tr>
+                                    <td>Out-of-nowhere fees</td>
+                                    <td>$ 299.99</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>$ 5,294.06</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="fake-buttom" id="fake-buttom" data-clicked="false">checkout</div>
                     </div>
 
                 </div>
