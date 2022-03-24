@@ -67,6 +67,9 @@
         .cell {
             position: relative;
             opacity: 0;
+            -webkit-animation:
+                fadeIn calc(var(--splash-general-delay) * 8) linear calc(var(--splash-general-delay) * 1) 1 forwards,
+                fadeOut calc(var(--splash-general-delay) * 8) linear calc(var(--splash-general-delay) * 60) 1 forwards;
             animation:
                 fadeIn calc(var(--splash-general-delay) * 8) linear calc(var(--splash-general-delay) * 1) 1 forwards,
                 fadeOut calc(var(--splash-general-delay) * 8) linear calc(var(--splash-general-delay) * 60) 1 forwards;

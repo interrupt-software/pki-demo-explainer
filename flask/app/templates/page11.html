@@ -163,6 +163,33 @@
         .billing-details table tr td:last-child {
             text-align: right;
         }
+
+        .fail-wrapper {
+            display: none;
+            font-size: 14px;
+            color: var(--gray-3);
+        }
+
+        .failed-checkout {
+            border-radius: 10px;
+            padding: 30px;
+            background-color: var(--brand-accent);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            height: 400px;
+        }
+
+        .fail-image {
+            width: 300px;
+        }
+
+
+        .failure-message {
+            width: 250px;
+        }
     </style>
 </head>
 
@@ -200,6 +227,25 @@
                         </div>
                         <div class="fake-buttom" id="fake-buttom" data-clicked="false">checkout</div>
                     </div>
+
+                    <div class="fail-wrapper" id="failed-checkout">
+                        <div class="failed-checkout">
+
+                            <div class="failure-image">
+                                <img class="fail-image" src="img/500-error.svg" alt="Error">
+                            </div>
+
+                            <div class="failure-message">
+                                <p>Oh dear us! It seems we have are unable to complete your
+                                    transaction request.
+                                </p>
+                                <p>Our Bitcoin Overlords apologize and hope that you will
+                                    try again shortly.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
 
                 </div>
 

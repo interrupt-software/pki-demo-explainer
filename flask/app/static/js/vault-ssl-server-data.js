@@ -2,6 +2,8 @@ window.onload = function () {
 
   const server_data = document.getElementById("server-data");
   const fake_button = document.getElementById("fake-buttom");
+  const checkout = document.getElementById("checkout");
+  const failed_checkout = document.getElementById("failed-checkout");
 
   async function fetchSSLServerData() {
     var log_data = null;
@@ -34,6 +36,10 @@ window.onload = function () {
           server_data.innerHTML += e + `<br>`;
         }
       } else {
+
+        checkout.style.cssText += `display: none;`
+        failed_checkout.style.cssText += `display: block;`
+
         throw new Error(Date() + " " + response.statusText + ": Failed to send SSL encryted message.");
       }
     } catch (e) {
