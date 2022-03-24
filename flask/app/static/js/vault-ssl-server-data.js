@@ -4,14 +4,40 @@ window.onload = function () {
   const fake_button = document.getElementById("fake-buttom");
 
   async function fetchSSLServerData() {
-    const response = await fetch("/get_ssl_server_data");
-    const log_data = await response.text();
+    var log_data = null;
+    try {
+      var response = await fetch("/get_ssl_server_data");
+      if (response.ok) {
+        try {
+          log_data = await response.text();
+        } catch (e) {
+          server_data.innerHTML += e + `<br>`;
+        }
+      }
+      else {
+        throw new Error(Date() + " " + response.statusText + ": Unable to load SSL server data.");
+      }
+    } catch (e) {
+      server_data.innerHTML += e + `<br>`;
+    }
     return log_data
   }
 
   async function sendSSLMessage() {
-    const response = await fetch("/send_ssl_message");
-    const jsonbody = await response.json();
+    var jsonbody = NaN;
+    try {
+      var response = await fetch("/send_ssl_message");
+      if (response.ok) {
+        try {
+          jsonbody = await response.json();
+        } catch (e) {
+          server_data.innerHTML += e + `<br>`;
+        }
+      }
+      throw new Error(Date() + " " + response.statusText + ": Failed to send SSL encryted message.");
+    } catch (e) {
+      server_data.innerHTML += e + `<br>`;
+    }
     return jsonbody;
   }
 
@@ -20,15 +46,22 @@ window.onload = function () {
     try {
       sendSSLMessage();
     } catch (e) {
-      server_data.innerHTML = e;
+      server_data.innerHTML += e + `<br>`;
     }
 
-    fetchSSLServerData().then(log_data => {
-      log_data = log_data.replace(/(\d{1,4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}:\d{1,2},\d{1,3})/g, "<br/>$1");
-      server_data.innerHTML = log_data;
-    }).catch(err => {
-      console.log("Error Reading data " + err);
-    });
+    fetchSSLServerData().then(logdata => {
+      try {
+        if (logdata) {
+          const serverdata = logdata.replace(/(\d{1,4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}:\d{1,2},\d{1,3})/g, "<br/>$1");
+          server_data.innerHTML += serverdata;
+        }
+        else {
+          throw new Error(Date() + ": Unable to obtain SSL server data.");
+        }
+      }
+      catch (e) {
+        server_data.innerHTML += e + `<br>`;
+      }
+    })
   })
-
 }
