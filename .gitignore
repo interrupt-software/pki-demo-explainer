@@ -43,3 +43,7 @@ vault-unseal.json
 app.egg-info
 __pycache__
 venv
+
+# Don't really need VSCode    #
+################################
+.vscode
