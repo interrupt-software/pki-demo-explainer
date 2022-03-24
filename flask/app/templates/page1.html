@@ -21,58 +21,45 @@
     <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
 
-
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
-
-
-    </style>
 </head>
 
 <body>
     <div class="main-container">
-        <div class="main-wrapper">
-            <div class="main-content">
+        <div class="main-content">
 
-                <div class="explainer-wrapper" data-clickable="true">
-                    <img class="explainer-image" src="{{ url_for('static', filename='img/vault_auth.svg') }}"
-                        alt="Vault Authentication">
-                    <span class="tooltiptext" id="tooltiptext">How does Vault work?</span>
-                </div>
+            <div class="explainer-wrapper" data-clickable="true">
+                <img class="explainer-image" src="{{ url_for('static', filename='img/vault_logo.svg') }}" alt="Vault">
+                <span class="tooltiptext" id="tooltiptext">What is Vault?</span>
 
-
-                <div class="explainer-wrapper">
-
-                    <div class="explainer" style="--splash-delay: 1">
-                        <h1>How Vault works</h1>
-                        <p>Authentication engines validate consumer identities with configurable authentication methods.
-                        </p>
-                    </div>
-                    <div class="explainer" style="--splash-delay: 3">
-                        <p>Valid client identities inherit privileges declared in Vault policies, and also receive
-                            session tokens.</p>
-                    </div>
-
-                    <div class="explainer" id="tale-teller" style="--splash-delay: 6">
-                        <p>Tokens verify that clients are authorized and load relevant policies that grant privileges on
-                            secrets engines.</p>
-                    </div>
-
-                </div>
             </div>
+
+            <div class="explainer-wrapper">
+
+                <div class="explainer" style="--splash-delay: 1">
+                    <h1>HashiCorp Vault</h1>
+                    <p>Vault is an identity-based secrets and encryption management system.</p>
+                </div>
+
+                <div class="explainer" style="--splash-delay: 3">
+                    <p>A secret is anything that you want to tightly control access to, such as API encryption
+                        keys, passwords, or certificates.</p>
+                </div>
+
+                <div class="explainer" style="--splash-delay: 6">
+                    <p>Secrets engines are components which store, generate, or encrypt data.</p>
+                </div>
+
+            </div>
+
         </div>
     </div>
-    <div class="last">
-        <a href="{{ url_for('one') }}">
-            <img src="{{ url_for('static', filename='img/left-arrow.svg') }}" alt="Last">
-        </a>
-    </div>
     <div class="next">
-        <a href="{{ url_for('three') }}">
+        <a href="{{ url_for('two') }}">
             <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
         </a>
     </div>
-
 </body>
 
 </html>

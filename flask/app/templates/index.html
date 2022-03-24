@@ -21,45 +21,287 @@
     <meta name="msapplication-config" content="{{ url_for('static',filename='fav-icon/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/normalize.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='js/splash.js') }}"></script>
+    <title>Document</title>
+    <style>
+        :root {
+            --splash-general-delay: 100ms;
+
+            /* Grays */
+            --white: #ffffff;
+            --black: #000000;
+            --gray-6: #f2f2f3;
+            --gray-5: #dbdbdc;
+            --gray-4: #bfbfc0;
+            --gray-3: #727274;
+            --gray-2: #343536;
+            --gray-1: #1d1e1f;
+
+            /* HashiCorp brand color */
+            --brand: #2e71e5;
+            /* CTA-Blue */
+            --brand-secondary: #f2f2f3;
+            --brand-logomark: #000000;
+            --brand-accent: #f2f2f3;
+            --brand-link: #2264d6;
+            --brand-link-on-dark: #4294ff;
+            --brand-text-on-primary: var(--white);
+            --brand-gradient: linear-gradient(50.7deg, #63d0ff 0%, #844fba 50%, #63d0ff 100%);
+
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .matrix {
+            display: inline-grid;
+            grid-template-columns: repeat(12, 50px);
+            grid-template-rows: repeat(12, 50px);
+        }
+
+        .cell {
+            position: relative;
+            opacity: 0;
+            animation:
+                fadeIn calc(var(--splash-general-delay) * 8) linear calc(var(--splash-general-delay) * 1) 1 forwards,
+                fadeOut calc(var(--splash-general-delay) * 8) linear calc(var(--splash-general-delay) * 60) 1 forwards;
+        }
+
+        .cell .line-left {
+            height: 3px;
+            background-image: var(--brand-gradient);
+            position: absolute;
+            top: 0px;
+            right: 0;
+            -webkit-animation: animate_left var(--splash-general-delay) linear forwards;
+            -webkit-animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+
+            animation: animate_left var(--splash-general-delay) linear forwards;
+            animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+        }
+
+        .cell .line-right {
+            height: 3px;
+            background-image: var(--brand-gradient);
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-animation: animate_right var(--splash-general-delay) linear forwards;
+            -webkit-animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+
+            animation: animate_right var(--splash-general-delay) linear forwards;
+            animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+        }
+
+        .cell .line-right-bottom {
+            height: 3px;
+            background-image: var(--brand-gradient);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            -webkit-animation: animate_right var(--splash-general-delay) linear forwards;
+            -webkit-animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+
+            animation: animate_right var(--splash-general-delay) linear forwards;
+            animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+        }
+
+        .cell .line-up {
+            width: 3px;
+            background-image: var(--brand-gradient);
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            -webkit-animation: animate_up var(--splash-general-delay) linear forwards;
+            -webkit-animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+
+            animation: animate_up var(--splash-general-delay) linear forwards;
+            animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+        }
+
+        .cell .line-down {
+            width: 3px;
+            background-image: var(--brand-gradient);
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-animation: animate_down var(--splash-general-delay) linear forwards;
+            -webkit-animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+
+            animation: animate_down var(--splash-general-delay) linear forwards;
+            animation-delay: calc(var(--splash-delay) * var(--splash-general-delay));
+        }
+
+        .cell-span-4 {
+            border-radius: 10px;
+            grid-column: span 4;
+            grid-row: span 4;
+        }
+
+        .border-all {
+            background: var(--gray-6);
+            border: 0.5px solid var(--gray-5);
+            box-sizing: border-box;
+            box-shadow: -11px -11px 22px rgba(209, 217, 230, 0.5), 11px 11px 22px rgba(209, 217, 230, 0.5), inset -11px -11px 22px rgba(255, 255, 255, 0.25);
+        }
+
+        #hashicorp-logo {
+            width: 196px;
+            height: 196px;
+        }
+
+        #logo {
+            opacity: 0;
+            animation:
+                fadeInUp calc(var(--splash-general-delay) * 14) linear calc(var(--splash-general-delay) * 4) 1 forwards,
+                shake calc(var(--splash-general-delay) * 14) linear calc(var(--splash-general-delay) * 30) 1 forwards;
+        }
+
+        @keyframes animate_left {
+            0% {
+                left: 100%;
+            }
+
+            50% {
+                left: 50%;
+            }
+
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes animate_right {
+            0% {
+                right: 100%;
+            }
+
+            50% {
+                right: 50%;
+            }
+
+            100% {
+                right: 0;
+            }
+        }
+
+        @keyframes animate_up {
+            0% {
+                top: 100%;
+            }
+
+            50% {
+                top: 50%;
+            }
+
+            100% {
+                top: 0;
+            }
+        }
+
+        @keyframes animate_down {
+            0% {
+                bottom: 100%;
+            }
+
+            50% {
+                bottom: 50%;
+            }
+
+            100% {
+                bottom: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(150%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="main-container">
-        <div class="main-content">
 
-            <div class="explainer-wrapper" data-clickable="true">
-                <img class="explainer-image" src="{{ url_for('static', filename='img/vault_logo.svg') }}" alt="Vault">
-                <span class="tooltiptext" id="tooltiptext">What is Vault?</span>
+    <div class="matrix" id="matrix"></div>
 
-            </div>
-
-            <div class="explainer-wrapper">
-
-                <div class="explainer" style="--splash-delay: 1">
-                    <h1>HashiCorp Vault</h1>
-                    <p>Vault is an identity-based secrets and encryption management system.</p>
-                </div>
-
-                <div class="explainer" style="--splash-delay: 3">
-                    <p>A secret is anything that you want to tightly control access to, such as API encryption
-                        keys, passwords, or certificates.</p>
-                </div>
-
-                <div class="explainer" style="--splash-delay: 6">
-                    <p>Secrets engines are components which store, generate, or encrypt data.</p>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <div class="next">
-        <a href="{{ url_for('two') }}">
-            <img src="{{ url_for('static', filename='img/right-arrow.svg') }}" alt="Next">
-        </a>
-    </div>
 </body>
 
 </html>

@@ -15,6 +15,10 @@ import ssl_client
 def home():
     return render_template('index.html')
 
+@app.route('/one')
+def one():
+    return render_template('page1.html')
+
 @app.route('/two', methods=['GET'])
 def two():
     return render_template('page2.html')
