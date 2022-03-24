@@ -2,9 +2,9 @@ from flask import Flask
 from flask import render_template
 from flask import send_from_directory
 from flask import stream_with_context
-import os
 from time import sleep
 from multiprocessing import Process
+import os, json
 
 app = Flask(__name__, static_url_path='')
 
@@ -74,6 +74,10 @@ def get_ssl_domain_data():
 @app.route('/send_ssl_message')
 def send_ssl_message():
     return ssl_client.send_ssl_message(b"This is a test.")
+
+@app.route('/health')
+def health():
+    return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
 
 # Need to work on async startup of the SSL Server
 # TO DO: 
