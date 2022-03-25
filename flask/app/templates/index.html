@@ -146,23 +146,24 @@
             grid-row: span 4;
         }
 
-        .border-all {
-            background: var(--gray-6);
-            border: 0.5px solid var(--gray-5);
+        #hashicorp-logo {
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand-accent);
+            background-image: var(--brand-gradient);
             box-sizing: border-box;
             box-shadow: -11px -11px 22px rgba(209, 217, 230, 0.5), 11px 11px 22px rgba(209, 217, 230, 0.5), inset -11px -11px 22px rgba(255, 255, 255, 0.25);
-        }
-
-        #hashicorp-logo {
-            width: 196px;
-            height: 196px;
         }
 
         #logo {
             opacity: 0;
             animation:
-                fadeInUp calc(var(--splash-general-delay) * 14) linear calc(var(--splash-general-delay) * 4) 1 forwards,
-                shake calc(var(--splash-general-delay) * 14) linear calc(var(--splash-general-delay) * 30) 1 forwards;
+                fadeIn calc(var(--splash-general-delay) * 7) linear calc(var(--splash-general-delay) * 4) 1 forwards;
+            /* shake calc(var(--splash-general-delay) * 14) linear calc(var(--splash-general-delay) * 30) 1 forwards; */
         }
 
         @keyframes animate_left {
@@ -295,7 +296,7 @@
             }
 
             100% {
-                transform: translate(1px, -2px) rotate(-1deg);
+                transform: translate(0, 0) rotate(0deg);
             }
         }
     </style>

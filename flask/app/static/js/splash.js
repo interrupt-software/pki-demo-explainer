@@ -149,7 +149,6 @@ window.onload = function () {
     }
 
     document.getElementById(magic_cell_id.toString()).classList.add("cell-span-4");
-    document.getElementById(magic_cell_id.toString()).classList.add("border-all");
 
     svgDiv = document.createElement("div");
     svgDiv.id = "hashicorp-logo";
