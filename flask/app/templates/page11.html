@@ -164,7 +164,7 @@
             text-align: right;
         }
 
-        .fail-wrapper {
+        .results-wrapper {
             display: none;
             font-size: 14px;
             color: var(--gray-3);
@@ -228,7 +228,39 @@
                         <div class="fake-buttom" id="fake-buttom" data-clicked="false">checkout</div>
                     </div>
 
-                    <div class="fail-wrapper" id="failed-checkout">
+                    <div class="results-wrapper" id="success-checkout">
+                        <div class="failed-checkout">
+
+                            <div class="failure-image">
+                                <img class="fail-image" src="img/200-success.svg" alt="Error">
+                            </div>
+
+                            <div class="failure-message">
+                                <table>
+                                    <tr>
+                                        <td>Sub-total</td>
+                                        <td>$ 4,907.41</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Self-delivery (download)</td>
+                                        <td>$ 86.66</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Out-of-nowhere fees</td>
+                                        <td>$ 299.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td>$ 5,294.06</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="results-wrapper" id="failed-checkout">
                         <div class="failed-checkout">
 
                             <div class="failure-image">

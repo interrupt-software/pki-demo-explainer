@@ -30,10 +30,21 @@ def run():
 
 
     while True:
+      global conn 
+
       logging.info("Waiting for client")
       newsocket, fromaddr = bindsocket.accept()
       logging.info("Client connected: {}:{}".format(fromaddr[0], fromaddr[1]))
-      conn = context.wrap_socket(newsocket, server_side=True)
+
+      try:
+        conn = context.wrap_socket(newsocket, server_side=True)
+      except ssl.SSLError as msg:
+        logging.error(msg)
+        conn = None
+      
+      if conn is None:
+        break
+
       logging.info("SSL established. Peer: {}".format(conn.getpeercert()))
       buf = b''  # Buffer to hold received client data
       try:

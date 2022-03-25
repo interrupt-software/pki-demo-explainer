@@ -35,8 +35,12 @@ def send_ssl_message(message):
         conn.connect(server_address)
     except (ConnectionError) as e:
         print("SSL exception. {}".format(e.args[-1]))
-    finally:
+
+    try:
         result = json.dumps(conn.getpeercert(), indent=2, sort_keys=True)
+    except:
+        raise ValueError('"Unable to find peer certificate information."')
+    finally:
         conn.send(message)
         conn.close()
 

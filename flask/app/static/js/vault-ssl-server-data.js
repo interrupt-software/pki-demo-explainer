@@ -4,6 +4,7 @@ window.onload = function () {
   const fake_button = document.getElementById("fake-buttom");
   const checkout = document.getElementById("checkout");
   const failed_checkout = document.getElementById("failed-checkout");
+  const success_checkout = document.getElementById("success-checkout");
 
   async function fetchSSLServerData() {
     var log_data = null;
@@ -32,6 +33,10 @@ window.onload = function () {
       if (response.ok) {
         try {
           jsonbody = await response.json();
+
+          checkout.style.cssText += `display: none;`
+          success_checkout.style.cssText += `display: block;`
+
         } catch (e) {
           server_data.innerHTML += e + `<br>`;
         }
@@ -52,37 +57,26 @@ window.onload = function () {
 
     server_data.innerHTML = "";
 
-    try {
-      sendSSLMessage().then(jsonbody => {
+    sendSSLMessage();
 
-        if (jsonbody) {
+    fetchSSLServerData().then(logdata => {
+      var serverdata = null;
 
-          fetchSSLServerData().then(logdata => {
-            var serverdata = null;
-
-            try {
-              if (logdata) {
-                serverdata = logdata.replace(/(\d{1,4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}:\d{1,2},\d{1,3})/g, "<br/>$1");
-                server_data.innerHTML += serverdata;
-              }
-              else {
-                throw new Error(Date() + ": Unable to request SSL server data.");
-              }
-            }
-            catch (e) {
-              server_data.innerHTML += e + `<br>`;
-            }
-            if (serverdata) {
-              server_data.innerHTML = serverdata;
-            }
-          })
+      try {
+        if (logdata) {
+          serverdata = logdata.replace(/(\d{1,4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}:\d{1,2},\d{1,3})/g, "<br/>$1");
+          server_data.innerHTML += serverdata;
         }
-
-      });
-
-    } catch (e) {
-      server_data.innerHTML = e + `<br>`;
-    }
-
+        else {
+          throw new Error(Date() + ": Unable to request SSL server data.");
+        }
+      }
+      catch (e) {
+        server_data.innerHTML += e + `<br>`;
+      }
+      if (serverdata) {
+        server_data.innerHTML = serverdata;
+      }
+    })
   })
 }
