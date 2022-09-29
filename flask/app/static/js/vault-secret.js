@@ -10,11 +10,11 @@ window.onload = function () {
     const copy_root_token = document.getElementById("copy-root-token");
     const copy_icon = document.getElementById("copy-icon");
 
-    var root_token;
-
     fetchRootToken().then(jsonbody => {
         copy_root_token.innerHTML = jsonbody["root_token"]
     });
+
+    var root_token;
 
     tale_teller.addEventListener('click', () => {
         window.getSelection().selectAllChildren(copy_root_token)
